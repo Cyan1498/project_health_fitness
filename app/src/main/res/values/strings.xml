@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">project_health_fitness</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="open_nav">Open Navigation Drawer</string>
+    <string name="close_nav">Close Navigation Drawer</string>
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <string-array name="instrucciones">
+        <item>Instruccion01</item>
+        <item>Instruccion02</item>
+        <item>Instruccio03</item>
+        <item>Instruccion04</item>
+    </string-array>
+
+    <string-array name="pastillas">
+        <item>pastilla01</item>
+        <item>pastilla02</item>
+        <item>pastilla03</item>
+        <item>pastilla04</item>
+    </string-array>
+
+</resources>

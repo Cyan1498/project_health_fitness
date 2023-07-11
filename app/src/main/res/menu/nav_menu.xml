@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/resumenFragment"
+            android:icon="@drawable/baseline_home_24"
+            android:title="Inicio"/>
+
+        <item android:id="@+id/consumoFragment"
+            android:icon="@drawable/baseline_emoji_food_beverage_24"
+            android:title="Consumo Diario"/>
+
+        <item android:id="@+id/fitnessFragment"
+            android:icon="@drawable/baseline_fitness_center_24"
+            android:title="Fitness"/>
+
+        <item android:id="@+id/recorridoFragment"
+            android:icon="@drawable/baseline_directions_run_24"
+            android:title="Recorrido"/>
+
+        <item android:id="@+id/recordatorioFragment"
+            android:icon="@drawable/baseline_medication_liquid_24"
+            android:title="Recordatorio de Medicina"/>
+
+        <item android:id="@+id/nav_salir"
+            android:icon="@drawable/baseline_exit_to_app_24"
+            android:title="Salir"/>
+    </group>
+
+</menu>

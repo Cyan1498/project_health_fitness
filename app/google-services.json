@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "152534759981",
+    "project_id": "healthfitnessdb",
+    "storage_bucket": "healthfitnessdb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:152534759981:android:3de635579cfc1dd7d356a4",
+        "android_client_info": {
+          "package_name": "com.grupoc.project_health_fitness"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "152534759981-a36vegofq74pif79eida3bh5l1l0n9fk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.grupoc.project_health_fitness",
+            "certificate_hash": "f27a1d14a6837b1109b714594eec9c1913c9ab21"
+          }
+        },
+        {
+          "client_id": "152534759981-8l60dt1k0hoq78gejn4dtt88t464b5ba.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfzZQvPDq_2EtI1oMyx5EgzZVfTRYfJqQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "152534759981-8l60dt1k0hoq78gejn4dtt88t464b5ba.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

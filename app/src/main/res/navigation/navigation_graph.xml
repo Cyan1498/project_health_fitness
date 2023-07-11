@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/resumenFragment">
+
+    <fragment
+        android:id="@+id/resumenFragment"
+        android:name="com.grupoc.project_health_fitness.ui.fragments.ResumenFragment"
+        android:label="fragment_resumen"
+        tools:layout="@layout/fragment_resumen" />
+    <fragment
+        android:id="@+id/alimentacionFragment"
+        android:name="com.grupoc.project_health_fitness.ui.fragments.AlimentacionFragment"
+        android:label="fragment_alimentacion"
+        tools:layout="@layout/fragment_alimentacion" />
+    <fragment
+        android:id="@+id/consumoFragment"
+        android:name="com.grupoc.project_health_fitness.ui.fragments.ConsumoFragment"
+        android:label="fragment_consumo"
+        tools:layout="@layout/fragment_consumo" />
+    <fragment
+        android:id="@+id/recordatorioFragment"
+        android:name="com.grupoc.project_health_fitness.ui.fragments.RecordatorioFragment"
+        android:label="fragment_recordatorio"
+        tools:layout="@layout/fragment_recordatorio" />
+</navigation>
