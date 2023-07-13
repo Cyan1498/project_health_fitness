@@ -8,21 +8,21 @@
     <fragment
         android:id="@+id/resumenFragment"
         android:name="com.grupoc.project_health_fitness.ui.fragments.ResumenFragment"
-        android:label="fragment_resumen"
+        android:label="RESUMEN"
         tools:layout="@layout/fragment_resumen" />
     <fragment
         android:id="@+id/alimentacionFragment"
         android:name="com.grupoc.project_health_fitness.ui.fragments.AlimentacionFragment"
-        android:label="fragment_alimentacion"
+        android:label="ALIMENTACIÓN"
         tools:layout="@layout/fragment_alimentacion" />
     <fragment
         android:id="@+id/consumoFragment"
         android:name="com.grupoc.project_health_fitness.ui.fragments.ConsumoFragment"
-        android:label="fragment_consumo"
+        android:label="CONSUMO"
         tools:layout="@layout/fragment_consumo" />
     <fragment
         android:id="@+id/recordatorioFragment"
         android:name="com.grupoc.project_health_fitness.ui.fragments.RecordatorioFragment"
-        android:label="fragment_recordatorio"
+        android:label="RECORDATORIO"
         tools:layout="@layout/fragment_recordatorio" />
 </navigation>

@@ -37,5 +37,7 @@ class InicioActivity : AppCompatActivity() {
         supportActionBar?.setHomeButtonEnabled(true)
 
 
+
+
     }
 }
