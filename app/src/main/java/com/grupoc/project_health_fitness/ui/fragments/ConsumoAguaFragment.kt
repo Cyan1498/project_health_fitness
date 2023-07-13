@@ -12,6 +12,8 @@ import com.grupoc.project_health_fitness.R
  * Use the [ConsumoAguaFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
+private const val ARG_PARAM1 = "param1"
+private const val ARG_PARAM2 = "param2"
 class ConsumoAguaFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
@@ -20,8 +22,8 @@ class ConsumoAguaFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(com.grupoc.project_health_fitness.ARG_PARAM1)
-            param2 = it.getString(com.grupoc.project_health_fitness.ARG_PARAM2)
+            param1 = it.getString(ARG_PARAM1)
+            param2 = it.getString(ARG_PARAM2)
         }
     }
 
@@ -47,8 +49,8 @@ class ConsumoAguaFragment : Fragment() {
         fun newInstance(param1: String, param2: String) =
             ConsumoAguaFragment().apply {
                 arguments = Bundle().apply {
-                    putString(com.grupoc.project_health_fitness.ARG_PARAM1, param1)
-                    putString(com.grupoc.project_health_fitness.ARG_PARAM2, param2)
+                    putString(ARG_PARAM1, param1)
+                    putString(ARG_PARAM2, param2)
                 }
             }
     }
