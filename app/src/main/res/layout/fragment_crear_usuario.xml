@@ -173,7 +173,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="40dp"
                 android:backgroundTint="@color/lavender"
-                android:text="REGISTRARME"
+                android:text="SIGNUP"
                 android:textColor="@color/white"
                 android:textSize="15dp"
                 android:textStyle="bold" />
