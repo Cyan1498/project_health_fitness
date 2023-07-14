@@ -173,7 +173,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="40dp"
                 android:backgroundTint="@color/lavender"
-                android:text="SIGNUP"
+                android:text="SIGN UP"
                 android:textColor="@color/white"
                 android:textSize="15dp"
                 android:textStyle="bold" />
