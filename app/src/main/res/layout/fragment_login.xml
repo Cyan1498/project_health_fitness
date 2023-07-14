@@ -84,7 +84,7 @@
                 android:layout_height="70dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
-                android:text="Iniciar Sesion2"
+                android:text="INICIAR SESION"
                 android:textSize="18sp"
                 app:cornerRadius="30dp" />
 
