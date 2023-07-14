@@ -185,7 +185,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="10dp"
                     android:layout_marginTop="12dp"
-                    android:text="Alimentacion" />
+                    android:text="Alimentación" />
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
