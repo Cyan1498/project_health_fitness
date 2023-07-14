@@ -86,7 +86,7 @@
                 android:layout_marginTop="30dp"
                 android:id="@+id/signup_button"
                 android:textSize="18sp"
-                android:text="Signup"
+                android:text="REGISTAR"
                 app:cornerRadius = "30dp"/>
 
         </LinearLayout>
