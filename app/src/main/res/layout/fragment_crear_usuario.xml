@@ -4,11 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/earth_fondo"
+    android:background="@drawable/fondo_gym"
     tools:context=".ui.fragments.CrearUsuarioFragment">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#D514192C">
+    </LinearLayout>
     <androidx.cardview.widget.CardView
-        android:background="@drawable/main_bg"
+        android:background="@drawable/viewpager_bkg"
         android:layout_width="match_parent"
         app:cardCornerRadius="20dp"
         android:layout_marginHorizontal="10dp"
@@ -175,7 +180,7 @@
                 android:backgroundTint="@color/lavender"
                 android:text="SIGN UP"
                 android:textColor="@color/white"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
