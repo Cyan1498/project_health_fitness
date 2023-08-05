@@ -4,9 +4,9 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
-        <item android:id="@+id/resumenFragment"
+        <!--<item android:id="@+id/resumenFragment"
             android:icon="@drawable/baseline_home_24"
-            android:title="Inicio"/>
+            android:title="Inicio"/>-->
 
         <item android:id="@+id/consumoFragment"
             android:icon="@drawable/baseline_emoji_food_beverage_24"
