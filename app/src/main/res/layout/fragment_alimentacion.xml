@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/alimentacionFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.fragments.AlimentacionFragment">
@@ -29,7 +30,7 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     android:layout_width="match_parent"
                     android:layout_weight="1"
-                    android:hint="Tipo de Comida"
+                    android:hint="Alimentos"
                     app:startIconTint="@color/lavender"
                     android:layout_gravity="start"
                     android:layout_height="match_parent">
@@ -41,6 +42,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
                 <androidx.appcompat.widget.AppCompatImageButton
                     android:layout_width="wrap_content"
+                    android:id="@+id/añadirAlimentacion_button"
                     android:layout_height="match_parent"
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="5dp"
