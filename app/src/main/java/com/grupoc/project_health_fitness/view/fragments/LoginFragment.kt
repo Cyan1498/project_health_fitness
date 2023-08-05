@@ -136,7 +136,7 @@ class LoginFragment : Fragment() {
         viewModel.userNotFoundEvent.observe(viewLifecycleOwner, Observer {
             SnackbarUtils.showSnackbar(
                 this,
-                "Usuario no existe",
+                "El Usuario ingresado no existe",
                 backgroundColor = SnackbarUtils.SnackbarColors.CUSTOM_COLOR
             )
         })
@@ -144,7 +144,7 @@ class LoginFragment : Fragment() {
         viewModel.incorrectPasswordEvent.observe(viewLifecycleOwner, Observer {
             SnackbarUtils.showSnackbar(
                 this,
-                "Contraseña incorrecta",
+                "La contraseña es incorrecta",
                 backgroundColor = SnackbarUtils.SnackbarColors.RED
             )
         })
