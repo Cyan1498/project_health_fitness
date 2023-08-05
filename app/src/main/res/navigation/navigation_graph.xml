@@ -7,22 +7,22 @@
 
     <fragment
         android:id="@+id/resumenFragment"
-        android:name="com.grupoc.project_health_fitness.ui.fragments.ResumenFragment"
+        android:name="com.grupoc.project_health_fitness.view.fragments.ResumenFragment"
         android:label="RESUMEN"
         tools:layout="@layout/fragment_resumen" />
     <fragment
         android:id="@+id/alimentacionFragment"
-        android:name="com.grupoc.project_health_fitness.ui.fragments.AlimentacionFragment"
+        android:name="com.grupoc.project_health_fitness.view.fragments.AlimentacionFragment"
         android:label="ALIMENTACIÓN"
         tools:layout="@layout/fragment_alimentacion" />
     <fragment
         android:id="@+id/consumoFragment"
-        android:name="com.grupoc.project_health_fitness.ui.fragments.ConsumoFragment"
+        android:name="com.grupoc.project_health_fitness.view.fragments.ConsumoFragment"
         android:label="CONSUMO"
         tools:layout="@layout/fragment_consumo" />
     <fragment
         android:id="@+id/recordatorioFragment"
-        android:name="com.grupoc.project_health_fitness.ui.fragments.RecordatorioFragment"
+        android:name="com.grupoc.project_health_fitness.view.fragments.RecordatorioFragment"
         android:label="RECORDATORIO"
         tools:layout="@layout/fragment_recordatorio" />
 </navigation>

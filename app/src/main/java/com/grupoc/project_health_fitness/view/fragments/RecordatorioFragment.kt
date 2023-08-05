@@ -1,4 +1,4 @@
-package com.grupoc.project_health_fitness.ui.fragments
+package com.grupoc.project_health_fitness.view.fragments
 
 import android.app.DatePickerDialog
 import android.os.Bundle
