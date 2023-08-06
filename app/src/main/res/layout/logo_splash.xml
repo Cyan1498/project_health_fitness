@@ -1,0 +1,35 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_gym"
+    android:orientation="vertical">
+
+    <!-- Establecer la opacidad del fondo (ajusta el valor alpha) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#D514192C"
+        android:alpha="0.98"> <!-- Prueba con diferentes valores de alpha para obtener el efecto deseado -->
+
+        <!-- Aquí puedes agregar el resto de tus vistas -->
+        <!-- Utilizar un FrameLayout como contenedor para centrar horizontalmente el LottieAnimationView -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/animate_heart"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/logo_animation" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
