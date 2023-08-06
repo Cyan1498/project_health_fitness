@@ -1,20 +1,14 @@
 package com.grupoc.project_health_fitness.view.fragments
 
-<<<<<<< HEAD
 import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-=======
-import android.content.Intent
-import android.os.Bundle
->>>>>>> 6c7374d (patron MVVM)
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-<<<<<<< HEAD
 import android.widget.ProgressBar
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.viewModels
@@ -40,6 +34,7 @@ class LoginFragment : Fragment() {
     //private lateinit var waitDialog: PleaseWaitDialog
 
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -47,29 +42,10 @@ class LoginFragment : Fragment() {
     ): View? {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         setupLoginButton()
-=======
-import android.widget.Toast
-import com.google.firebase.auth.FirebaseAuth
-import com.grupoc.project_health_fitness.databinding.FragmentLoginBinding
-import com.grupoc.project_health_fitness.view.activities.InicioActivity
-
-class LoginFragment : Fragment() {
-
-    private lateinit var firebaseAuth: FirebaseAuth
-    private var _binding: FragmentLoginBinding? = null
-    private val binding get() = _binding!!
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentLoginBinding.inflate(inflater, container, false)
->>>>>>> 6c7374d (patron MVVM)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-<<<<<<< HEAD
         //Es el lugar donde puedes interactuar con la vista inflada después de que se ha creado
         super.onViewCreated(view, savedInstanceState)
         // Solicitar el enfoque del EditText con un pequeño retraso
@@ -114,34 +90,10 @@ class LoginFragment : Fragment() {
                     "Ingrese correctamente sus credenciales",
                     backgroundColor = SnackbarUtils.SnackbarColors.CUSTOM_COLOR
                 )
-=======
-        super.onViewCreated(view, savedInstanceState)
-        login()
-    }
-    private fun login() {
-        firebaseAuth = FirebaseAuth.getInstance()
-
-        binding.loginButton.setOnClickListener {
-            val email = binding.edEmail.text.toString()
-            val password = binding.edPassword.text.toString()
-
-            if (email.isNotEmpty() && password.isNotEmpty()) {
-                firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
-                    if (it.isSuccessful) {
-                        val intent = Intent(context, InicioActivity::class.java)
-                        startActivity(intent)
-                    } else {
-                        Toast.makeText(context, it.exception.toString(), Toast.LENGTH_SHORT).show()
-                    }
-                }
-            } else {
-                Toast.makeText(context, "Los campos no pueden estar vacíos", Toast.LENGTH_SHORT).show()
->>>>>>> 6c7374d (patron MVVM)
             }
         }
     }
 
-<<<<<<< HEAD
     private fun observerLoginViewModel() {
 
         viewModel.showProgressDialog.observe(viewLifecycleOwner, Observer { show ->
@@ -169,13 +121,12 @@ class LoginFragment : Fragment() {
         viewModel.loginResult.observe(viewLifecycleOwner, Observer { success ->
             //viewLifecycleOwner: ciclo de vida asociado con la vista del fragmento
             //observa LiveData y evita posibles fugas de memoria cuando se registra un observador.
-
+//            binding.formLogin.visibility = View.GONE
+//            loadingAnimationView = binding.lottieLoading
+//            loadingAnimationView.visibility = View.VISIBLE
+//            loadingAnimationView.playAnimation()
             if (success) {
-                SnackbarUtils.showSnackbar(
-                    this,
-                    "Inicio de sesion exitos",
-                    backgroundColor = SnackbarUtils.SnackbarColors.GREEN
-                )
+                SnackbarUtils.showSnackbar(this, "Inicio de sesion exitos", backgroundColor = SnackbarUtils.SnackbarColors.GREEN)
                 requireActivity().finish()
                 val intent = Intent(context, InicioActivity::class.java)
                 startActivity(intent)
@@ -183,28 +134,16 @@ class LoginFragment : Fragment() {
         })
 
         viewModel.userNotFoundEvent.observe(viewLifecycleOwner, Observer {
-            SnackbarUtils.showSnackbar(
-                this,
-                "El Usuario ingresado no existe",
-                backgroundColor = SnackbarUtils.SnackbarColors.CUSTOM_COLOR
-            )
+            SnackbarUtils.showSnackbar(this, "Usuario no existe", backgroundColor = SnackbarUtils.SnackbarColors.CUSTOM_COLOR)
         })
 
         viewModel.incorrectPasswordEvent.observe(viewLifecycleOwner, Observer {
-            SnackbarUtils.showSnackbar(
-                this,
-                "La contraseña es incorrecta",
-                backgroundColor = SnackbarUtils.SnackbarColors.RED
-            )
+            SnackbarUtils.showSnackbar(this, "Contraseña incorrecta", backgroundColor = SnackbarUtils.SnackbarColors.RED)
         })
 
         viewModel.unknownErrorEvent.observe(viewLifecycleOwner, Observer {
             //SnackbarUtils.showSnackbar(this, "Error desconocido")
-            SnackbarUtils.showSnackbar(
-                this,
-                "Revise su conexion a internet",
-                backgroundColor = SnackbarUtils.SnackbarColors.RED
-            )
+            SnackbarUtils.showSnackbar(this, "Revise su conexion a internet", backgroundColor = SnackbarUtils.SnackbarColors.RED)
         })
     }
 
@@ -216,6 +155,14 @@ class LoginFragment : Fragment() {
         editText.requestFocus()
     }
 
+    // Método para cargar la animación del logo en el ImageView
+//    fun loadLogoAnimation(animationResId: Int) {
+//        val loadingAnimationView = binding.lottieLoading
+//        loadingAnimationView.setAnimation(animationResId)
+//        loadingAnimationView.playAnimation()
+//    }
+
+    //Se llama cuando la pantalla se cierra o desaparece.
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
@@ -234,8 +181,3 @@ class LoginFragment : Fragment() {
         progressDialog?.dismiss()
     }
 }
-
-
-=======
-}
->>>>>>> 6c7374d (patron MVVM)

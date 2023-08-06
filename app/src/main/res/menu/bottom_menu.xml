@@ -12,4 +12,5 @@
         android:id="@+id/bottom_settings"
         android:title="Configuración"
         android:icon="@drawable/baseline_settings_24"/>
+<!--    yo lo scribi-->
 </menu>
