@@ -7,7 +7,10 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.DialogFragment
+<<<<<<< HEAD
 import androidx.fragment.app.Fragment
+=======
+>>>>>>> 6c7374d (patron MVVM)
 import com.grupoc.project_health_fitness.R
 
 
