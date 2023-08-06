@@ -1,20 +1,13 @@
 package com.grupoc.project_health_fitness.view.fragments
 
 import android.os.Bundle
-<<<<<<< HEAD
-import android.util.Log
-=======
->>>>>>> 6c7374d (patron MVVM)
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-<<<<<<< HEAD
-import androidx.navigation.Navigation.findNavController
-=======
->>>>>>> 6c7374d (patron MVVM)
+
 import androidx.navigation.fragment.findNavController
 import com.grupoc.project_health_fitness.R
 
