@@ -6,13 +6,12 @@
     android:layout_height="match_parent"
     android:background="@drawable/fondo_gym"
     android:id="@+id/container"
-    tools:context=".view.MainActivity">
+    tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#D514192C"
-        android:alpha="0.7">
+        android:background="#D514192C">
     </LinearLayout>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="380dp"
