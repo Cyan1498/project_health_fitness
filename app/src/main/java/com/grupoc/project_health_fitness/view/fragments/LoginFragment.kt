@@ -33,8 +33,6 @@ class LoginFragment : Fragment() {
     private lateinit var progressDialogCustom: ProgressDialogCustom
     //private lateinit var waitDialog: PleaseWaitDialog
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -50,9 +48,6 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         // Solicitar el enfoque del EditText con un pequeño retraso
         Handler(Looper.getMainLooper()).postDelayed({
-            //el teclado virtual se estaba ocultando automáticamente después de que se mostraba brevemente.
-            //Al agregar un pequeño retraso (100 milisegundos) antes de solicitar el enfoque del campo de texto,
-            //permitiste que el teclado virtual se mostrara completamente antes de cualquier otra interacción
             binding.edEmail.requestFocus()
         }, 100)
         //loginFormValidator.keyEvent()
@@ -121,12 +116,12 @@ class LoginFragment : Fragment() {
         viewModel.loginResult.observe(viewLifecycleOwner, Observer { success ->
             //viewLifecycleOwner: ciclo de vida asociado con la vista del fragmento
             //observa LiveData y evita posibles fugas de memoria cuando se registra un observador.
-//            binding.formLogin.visibility = View.GONE
-//            loadingAnimationView = binding.lottieLoading
-//            loadingAnimationView.visibility = View.VISIBLE
-//            loadingAnimationView.playAnimation()
             if (success) {
-                SnackbarUtils.showSnackbar(this, "Inicio de sesion exitos", backgroundColor = SnackbarUtils.SnackbarColors.GREEN)
+                SnackbarUtils.showSnackbar(
+                    this,
+                    "Inicio de sesion exitos",
+                    backgroundColor = SnackbarUtils.SnackbarColors.GREEN
+                )
                 requireActivity().finish()
                 val intent = Intent(context, InicioActivity::class.java)
                 startActivity(intent)
@@ -134,16 +129,28 @@ class LoginFragment : Fragment() {
         })
 
         viewModel.userNotFoundEvent.observe(viewLifecycleOwner, Observer {
-            SnackbarUtils.showSnackbar(this, "Usuario no existe", backgroundColor = SnackbarUtils.SnackbarColors.CUSTOM_COLOR)
+            SnackbarUtils.showSnackbar(
+                this,
+                "Usuario no existe",
+                backgroundColor = SnackbarUtils.SnackbarColors.CUSTOM_COLOR
+            )
         })
 
         viewModel.incorrectPasswordEvent.observe(viewLifecycleOwner, Observer {
-            SnackbarUtils.showSnackbar(this, "Contraseña incorrecta", backgroundColor = SnackbarUtils.SnackbarColors.RED)
+            SnackbarUtils.showSnackbar(
+                this,
+                "Contraseña incorrecta",
+                backgroundColor = SnackbarUtils.SnackbarColors.RED
+            )
         })
 
         viewModel.unknownErrorEvent.observe(viewLifecycleOwner, Observer {
             //SnackbarUtils.showSnackbar(this, "Error desconocido")
-            SnackbarUtils.showSnackbar(this, "Revise su conexion a internet", backgroundColor = SnackbarUtils.SnackbarColors.RED)
+            SnackbarUtils.showSnackbar(
+                this,
+                "Revise su conexion a internet",
+                backgroundColor = SnackbarUtils.SnackbarColors.RED
+            )
         })
     }
 
@@ -154,13 +161,6 @@ class LoginFragment : Fragment() {
         // Solicitar el enfoque del EditText cuando el usuario regresa a la pestaña
         editText.requestFocus()
     }
-
-    // Método para cargar la animación del logo en el ImageView
-//    fun loadLogoAnimation(animationResId: Int) {
-//        val loadingAnimationView = binding.lottieLoading
-//        loadingAnimationView.setAnimation(animationResId)
-//        loadingAnimationView.playAnimation()
-//    }
 
     //Se llama cuando la pantalla se cierra o desaparece.
     override fun onDestroyView() {

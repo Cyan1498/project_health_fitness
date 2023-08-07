@@ -11,6 +11,6 @@ class ProgressDialogCustom(context: Context) : Dialog(context) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
-        setContentView(R.layout.progress_dialog) // Reemplaza R.layout.progress_dialog con el nombre de tu archivo XML
+        setContentView(R.layout.progress_dialog)
     }
 }
