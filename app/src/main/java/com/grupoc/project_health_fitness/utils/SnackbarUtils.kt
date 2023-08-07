@@ -17,11 +17,9 @@ object SnackbarUtils {
         val GREEN = Color.GREEN
         val RED = Color.RED
         val WHITE = Color.WHITE
-        // Puedes agregar más colores personalizados aquí
         val BLUE = Color.BLUE
         val YELLOW = Color.YELLOW
         val CUSTOM_COLOR = Color.parseColor("#EE5485")
-        // ...
     }
 
     private const val defaultDuration = Snackbar.LENGTH_SHORT
@@ -39,12 +37,12 @@ object SnackbarUtils {
         val snackbar = Snackbar.make(fragment.requireView(), message, duration)
         val snackbarView = snackbar.view
 
-        // Personalizar el color de fondo del Snackbar
+        // Color de fondo del Snackbar
         if (backgroundColor != null) {
             snackbar.view.backgroundTintList = ColorStateList.valueOf(backgroundColor)
         }
 
-        // Personalizar el color del texto del Snackbar
+        // Color del texto del Snackbar
         snackbar.setTextColor(textColor)
 
         // Si se proporciona un botón de acción, establecerlo
@@ -63,7 +61,7 @@ object SnackbarUtils {
         val params = snackbarView.layoutParams as FrameLayout.LayoutParams
         params.width = FrameLayout.LayoutParams.WRAP_CONTENT
         params.gravity = Gravity.CENTER_HORIZONTAL
-        params.topMargin = 180 // Valor fijo del margen superior en píxeles
+        params.topMargin = 180
 
         // Aplicar los parámetros actualizados al Snackbar
         snackbarView.layoutParams = params
