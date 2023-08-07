@@ -221,7 +221,7 @@
                                 android:layout_centerInParent="true" />
 
                             <Button
-                                android:id="@+id/consumoAgua_botton"
+                                android:id="@+id/consumoAgua_button"
                                 android:layout_width="60dp"
                                 android:layout_height="wrap_content"
                                 android:text="+"
@@ -265,7 +265,7 @@
                             android:layout_centerInParent="true" />
 
                         <Button
-                            android:id="@+id/alimentacion_botton"
+                            android:id="@+id/alimentacion_button"
                             android:layout_width="60dp"
                             android:layout_height="wrap_content"
                             android:text="+"

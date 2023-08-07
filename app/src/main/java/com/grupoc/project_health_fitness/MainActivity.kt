@@ -1,5 +1,6 @@
 package com.grupoc.project_health_fitness
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -10,7 +11,9 @@ import androidx.fragment.app.FragmentManager
 import androidx.viewpager2.widget.ViewPager2
 import com.airbnb.lottie.LottieAnimationView
 import com.google.android.material.tabs.TabLayout
+import com.google.firebase.auth.FirebaseAuth
 import com.grupoc.project_health_fitness.databinding.ActivityMainBinding
+import com.grupoc.project_health_fitness.view.activities.InicioActivity
 
 
 class MainActivity : AppCompatActivity() {
@@ -20,6 +23,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var viewPager2: ViewPager2
     private lateinit var adapter: ViewPagerAdapter
     private lateinit var loadingAnimationView: LottieAnimationView
+    private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var user: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +32,8 @@ class MainActivity : AppCompatActivity() {
         // Inflar la vista de la pantalla de inicio
         val splashView = LayoutInflater.from(this).inflate(R.layout.logo_splash, null)
         setContentView(splashView)
+        user = FirebaseAuth.getInstance()
+        UserLogged()
 
         // Acceder al LottieAnimationView usando su ID
         loadingAnimationView = splashView.findViewById(R.id.animate_heart)
@@ -43,6 +50,13 @@ class MainActivity : AppCompatActivity() {
 
         }, 3000) // Retraso de 3 segundos
 
+    }
+
+    private fun UserLogged(){
+        if (user.currentUser != null){
+            startActivity(Intent(this, InicioActivity::class.java))
+            finish()
+        }
     }
 
     private fun setupView(){
