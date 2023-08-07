@@ -1,14 +1,12 @@
-package com.grupoc.project_health_fitness.ui.fragments
+package com.grupoc.project_health_fitness.view.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageButton
-import androidx.fragment.app.DialogFragment
 import com.grupoc.project_health_fitness.R
 
 

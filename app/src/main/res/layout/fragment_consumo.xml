@@ -5,7 +5,7 @@
     android:id="@+id/consumoFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.ConsumoFragment">
+    tools:context=".view.fragments.ConsumoFragment">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"

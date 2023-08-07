@@ -1,4 +1,4 @@
-package com.grupoc.project_health_fitness.ui.activities
+package com.grupoc.project_health_fitness.view.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

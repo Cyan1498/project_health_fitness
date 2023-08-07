@@ -1,11 +1,11 @@
-package com.grupoc.project_health_fitness.ui
+package com.grupoc.project_health_fitness
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.grupoc.project_health_fitness.ui.fragments.LoginFragment
-import com.grupoc.project_health_fitness.ui.fragments.RegistroFragment
+import com.grupoc.project_health_fitness.view.fragments.LoginFragment
+import com.grupoc.project_health_fitness.view.fragments.RegistroFragment
 
 class ViewPagerAdapter (fragmentManager: FragmentManager, lifecycle: Lifecycle): FragmentStateAdapter(fragmentManager, lifecycle) {
 

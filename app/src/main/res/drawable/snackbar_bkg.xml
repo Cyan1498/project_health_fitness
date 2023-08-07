@@ -1,0 +1,6 @@
+<!-- res/drawable/snackbar_rounded_background.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="50dp" /> <!-- Cambia el valor del radio según tus preferencias -->
+<!--    <solid android:color="@color/colorSnackbarBackground" /> -->
+    <!-- Cambia el color de fondo según tus preferencias -->
+</shape>
