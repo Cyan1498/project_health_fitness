@@ -9,4 +9,10 @@
         android:name="com.grupoc.project_health_fitness.view.fragments.ResumenFragment"
         android:label="fragment_resumen"
         tools:layout="@layout/fragment_resumen" />
+    <fragment
+        android:id="@+id/consumoFragment5"
+        android:name="com.grupoc.project_health_fitness.view.fragments.ConsumoFragment"
+        android:label="fragment_consumo"
+        tools:layout="@layout/fragment_consumo" />
+
 </navigation>
