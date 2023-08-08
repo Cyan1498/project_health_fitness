@@ -14,26 +14,51 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/contentForm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginTop="20dp"
             android:padding="20dp">
 
-            <ImageView
-                android:layout_marginTop="30dp"
-                android:layout_width="wrap_content"
-                android:layout_height="100dp"
-                android:src="@drawable/fitness"/>
+<!--            <ImageView-->
+<!--                android:layout_marginTop="30dp"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="100dp"-->
+<!--                android:src="@drawable/fitness"/>-->
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edNameL"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginTop="15dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="10dp"
+                app:startIconDrawable="@drawable/baseline_email_24"
+                android:hint="Nombre"
+                android:textColorHint="@color/inputText"
+                app:startIconTint="@color/lavender"
+                android:layout_gravity="center">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edName"
+                    android:background="@drawable/back_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edEmailL"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="10dp"
                 app:startIconDrawable="@drawable/baseline_email_24"
                 android:hint="Email"
                 android:textColorHint="@color/inputText"
@@ -41,7 +66,7 @@
                 android:layout_gravity="center">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/signup_email"
+                    android:id="@+id/edEmail"
                     android:background="@drawable/back_input"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
@@ -50,13 +75,14 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edPasswordL"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginTop="15dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="10dp"
                 app:startIconDrawable="@drawable/baseline_password_24"
                 android:hint="Password"
                 app:passwordToggleEnabled="true"
@@ -66,7 +92,7 @@
                 android:layout_gravity="center">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/signup_password"
+                    android:id="@+id/edPassword"
                     android:layout_width="match_parent"
                     android:inputType="textPassword"
                     android:background="@drawable/back_input"
@@ -76,15 +102,16 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edConfirmPassL"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginTop="15dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="10dp"
                 app:startIconDrawable="@drawable/baseline_password_24"
-                android:hint="Password"
+                android:hint="Confirm Password"
                 app:passwordToggleEnabled="true"
                 app:passwordToggleTint="@color/lavender"
                 android:textColorHint="@color/inputText"
@@ -92,7 +119,7 @@
                 android:layout_gravity="center">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/signup_confirm"
+                    android:id="@+id/edConfirmPass"
                     android:layout_width="match_parent"
                     android:inputType="textPassword"
                     android:background="@drawable/back_input"
@@ -112,6 +139,16 @@
                 app:cornerRadius = "30dp"/>
 
         </LinearLayout>
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lotieLoading"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loading_animation"
+            android:layout_marginTop="20dp"
+            android:visibility="gone" />
 
     </LinearLayout>
 
