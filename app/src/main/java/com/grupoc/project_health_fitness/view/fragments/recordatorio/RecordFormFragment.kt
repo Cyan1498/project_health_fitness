@@ -1,4 +1,4 @@
-package com.grupoc.project_health_fitness.view.fragments
+package com.grupoc.project_health_fitness.view.fragments.recordatorio
 
 import android.app.DatePickerDialog
 import android.os.Bundle
@@ -8,12 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import com.grupoc.project_health_fitness.R
-import com.grupoc.project_health_fitness.databinding.FragmentRecordatorioBinding
+import com.grupoc.project_health_fitness.databinding.FragmentRecordFormBinding
 import java.util.Calendar
 
-class RecordatorioFragment : Fragment() {
+class RecordFormFragment : Fragment() {
 
-    private var _binding: FragmentRecordatorioBinding? = null
+    private var _binding: FragmentRecordFormBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -21,7 +21,7 @@ class RecordatorioFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentRecordatorioBinding.inflate(inflater, container, false)
+        _binding = FragmentRecordFormBinding.inflate(inflater, container, false)
         binding.dtpicker.setOnClickListener { onScheduledDate() }
         dropdownInstrucciones()
         dropdownPastillas()

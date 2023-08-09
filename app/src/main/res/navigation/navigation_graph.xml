@@ -14,5 +14,19 @@
         android:name="com.grupoc.project_health_fitness.view.fragments.ConsumoFragment"
         android:label="fragment_consumo"
         tools:layout="@layout/fragment_consumo" />
+    <fragment
+        android:id="@+id/recordListFragment"
+        android:name="com.grupoc.project_health_fitness.view.fragments.recordatorio.RecordListFragment"
+        android:label="fragment_record_list"
+        tools:layout="@layout/fragment_record_list" >
+        <action
+            android:id="@+id/action_recordListFragment_to_recordFormFragment"
+            app:destination="@id/recordFormFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/recordFormFragment"
+        android:name="com.grupoc.project_health_fitness.view.fragments.recordatorio.RecordFormFragment"
+        android:label="fragment_record_form"
+        tools:layout="@layout/fragment_record_form" />
 
 </navigation>

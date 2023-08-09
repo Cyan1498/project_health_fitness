@@ -12,9 +12,17 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="floatingActionButtonStyle">@style/FloatingActionButton</item>
     </style>
 
     <style name="Theme.Project_health_fitness" parent="Base.Theme.Project_health_fitness" />
+
+    <style name="FloatingActionButton" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="backgroundTint">@color/lavender</item> <!-- Cambia el color de fondo -->
+        <item name="rippleColor">@color/teal_700</item> <!-- Cambia el color del efecto ripple -->
+        <item name="tint">@color/white</item> <!-- Cambia el color del icono -->
+    </style>
+
 </resources>
 
 
