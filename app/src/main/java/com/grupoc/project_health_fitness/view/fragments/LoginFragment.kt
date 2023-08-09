@@ -25,7 +25,6 @@ import com.grupoc.project_health_fitness.viewmodel.LoginViewModel
 class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
-
     private val viewModel: LoginViewModel by viewModels()
     private lateinit var loginFormValidator: LoginFormValidator
     private var progressDialog: ProgressDialog? = null

@@ -13,7 +13,9 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.grupoc.project_health_fitness.ConsumoAdapter
 import com.grupoc.project_health_fitness.R
-
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
 
 
 class ConsumoFragment : Fragment(), ConsumoAdapter.OnItemClickListener {
@@ -23,14 +25,8 @@ class ConsumoFragment : Fragment(), ConsumoAdapter.OnItemClickListener {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_consumo, container, false)
-// Datos de ejemplo para el RecyclerView
-        //val dataList = listOf("Elemento 1", "Elemento 2", "Elemento 3","Elemento 4","Elemento 5","Elemento 6",
-       //     "Elemento 7","Elemento 8")
-     //   val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
-      //  recyclerView.adapter = ConsumoAdapter(dataList,this)
-     //   recyclerView.layoutManager = LinearLayoutManager(requireContext())
         val viewPager2: ViewPager2 = view.findViewById(R.id.viewPager2)
-        val dataList = listOf("Item 1", "Item 2", "Item 3") // Aquí puedes poner tus datos reales
+        val dataList = listOf("Item 1", "Item 2", "Item 3")
         val adapter = ConsumoAdapter(dataList,this)
         viewPager2.adapter = adapter
 
@@ -68,6 +64,18 @@ class ConsumoFragment : Fragment(), ConsumoAdapter.OnItemClickListener {
       //      val showConsumoAgua = ConsumoAguaFragment()
        //     showConsumoAgua.show(
          //       (activity as AppCompatActivity).supportFragmentManager, "showAgregarAlimento"
+
+        val hoyButton: Button = view.findViewById(R.id.hoy_text)
+
+        // Obtener la fecha actual
+        val currentDate = Calendar.getInstance().time
+
+        // Formatear la fecha en el formato deseado
+        val dateFormat = SimpleDateFormat("dd/MM", Locale.getDefault())
+        val formattedDate = dateFormat.format(currentDate)
+
+        // Establecer el texto del botón con la fecha actual formateada
+        hoyButton.text = formattedDate
 
         }
 
