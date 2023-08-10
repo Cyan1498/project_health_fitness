@@ -4,8 +4,10 @@ import android.app.AlertDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.navigation.findNavController
@@ -19,19 +21,22 @@ import com.google.firebase.ktx.Firebase
 import com.grupoc.project_health_fitness.MainActivity
 import com.grupoc.project_health_fitness.R
 import com.grupoc.project_health_fitness.databinding.ActivityInicioBinding
+import com.grupoc.project_health_fitness.utils.interfaces.BottomNavVisibilityListener
 import com.grupoc.project_health_fitness.view.fragments.ConsumoFragment
 import com.grupoc.project_health_fitness.view.fragments.recordatorio.RecordListFragment
 
 //import com.grupoc.project_health_fitness.view.fragments.recordatorio.RecordFormFragment22
 
-class InicioActivity : AppCompatActivity() {
+//, BottomNavVisibilityListener
+class InicioActivity : AppCompatActivity(){
 
-    private lateinit var fragmentManager: FragmentManager
+//    private lateinit var fragmentManager: FragmentManager
     private lateinit var binding: ActivityInicioBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var toggle: ActionBarDrawerToggle
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var FirebaseUser: FirebaseAuth
+    private var showBackArrow: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,9 +68,27 @@ class InicioActivity : AppCompatActivity() {
             R.string.close_nav
         )
         drawerLayout.addDrawerListener(toggle)
+//        toggle.isDrawerIndicatorEnabled = true // Mostrar el ícono del menú
         toggle.syncState()
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setHomeButtonEnabled(true)
+
+
+//        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+//        supportActionBar?.setHomeButtonEnabled(true)
+
+        //Mostar el icon de menu en todos los fragments principales
+        // (se puede comentar y funciona pero aparece la flecha levemente)
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.id == R.id.resumenFragment) {
+                supportActionBar?.setDisplayHomeAsUpEnabled(false)
+                toggle.isDrawerIndicatorEnabled = true
+                toggle.syncState()
+            } else {
+                supportActionBar?.setDisplayHomeAsUpEnabled(true)
+                toggle.isDrawerIndicatorEnabled = true  // Mostrar el ícono del menú
+                toggle.syncState()
+            }
+        }
+
 
 //        showUserInfo(email.toString(), user.toString())
 
@@ -143,4 +166,49 @@ class InicioActivity : AppCompatActivity() {
         //estableciendo la navegación y la selección de elementos de manera coherente.
         bottomNavigationView.setupWithNavController(bottomNavController)
     }
+
+
+
+    //Mostar el icono de las flechas en el los fragments secundarios
+    fun setShowBackArrow(showBackArrow: Boolean) {
+        this.showBackArrow = showBackArrow
+        supportActionBar?.setDisplayHomeAsUpEnabled(showBackArrow)
+        toggle.isDrawerIndicatorEnabled = !showBackArrow
+
+        if (showBackArrow) {
+            toggle.toolbarNavigationClickListener = View.OnClickListener {
+                onBackPressed()
+            }
+        } else {
+            toggle.toolbarNavigationClickListener = null
+        }
+
+        toggle.syncState()
+    }
+
+
+
+
+
+    //Ocultar o mostrar el bottom navigation
+    fun setBottomNavigationVisible(visible: Boolean) {
+        if (visible) {
+            binding.bottomNavigationView.visibility = View.VISIBLE
+        } else {
+            binding.bottomNavigationView.visibility = View.GONE
+        }
+    }
+
+    //Mostrar o ocultar la navegacion lateral
+    fun setDrawerEnabled(enabled: Boolean) {
+        if (enabled) {
+            toggle.isDrawerIndicatorEnabled = true
+            binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
+        } else {
+            toggle.isDrawerIndicatorEnabled = false
+            binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+        }
+        toggle.syncState()
+    }
+
 }
