@@ -10,11 +10,6 @@
         android:label="fragment_resumen"
         tools:layout="@layout/fragment_resumen" />
     <fragment
-        android:id="@+id/consumoFragment5"
-        android:name="com.grupoc.project_health_fitness.view.fragments.ConsumoFragment"
-        android:label="fragment_consumo"
-        tools:layout="@layout/fragment_consumo" />
-    <fragment
         android:id="@+id/recordListFragment"
         android:name="com.grupoc.project_health_fitness.view.fragments.recordatorio.RecordListFragment"
         android:label="fragment_record_list"
@@ -28,5 +23,15 @@
         android:name="com.grupoc.project_health_fitness.view.fragments.recordatorio.RecordFormFragment"
         android:label="fragment_record_form"
         tools:layout="@layout/fragment_record_form" />
+    <fragment
+        android:id="@+id/consumoFragment"
+        android:name="com.grupoc.project_health_fitness.view.fragments.ConsumoFragment"
+        android:label="fragment_consumo"
+        tools:layout="@layout/fragment_consumo" />
+    <fragment
+        android:id="@+id/alimentacionFragment"
+        android:name="com.grupoc.project_health_fitness.view.fragments.AlimentacionFragment"
+        android:label="fragment_alimentacion"
+        tools:layout="@layout/fragment_alimentacion" />
 
 </navigation>

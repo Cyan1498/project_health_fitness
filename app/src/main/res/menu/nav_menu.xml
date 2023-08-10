@@ -5,7 +5,7 @@
 
     <group android:checkableBehavior="single">
 
-        <item android:id="@+id/resumenFragment"
+        <item android:id="@+id/consumoFragment"
             android:icon="@drawable/baseline_emoji_food_beverage_24"
             android:title="Consumo Diario"/>
 
