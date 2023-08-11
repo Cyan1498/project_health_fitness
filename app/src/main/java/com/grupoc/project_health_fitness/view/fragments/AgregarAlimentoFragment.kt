@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 import com.grupoc.project_health_fitness.R
 
@@ -16,7 +17,12 @@ class AgregarAlimentoFragment : DialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_agregar_alimento, container, false)
+        val view= inflater.inflate(R.layout.fragment_agregar_alimento, container, false)
+        val closeText = view.findViewById<TextView>(R.id.closeText)
+        closeText.setOnClickListener {
+            requireFragmentManager().beginTransaction().remove(this).commit()
+        }
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
