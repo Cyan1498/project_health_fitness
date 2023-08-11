@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import com.grupoc.project_health_fitness.R
 import com.grupoc.project_health_fitness.databinding.FragmentRecordFormBinding
+import com.grupoc.project_health_fitness.view.activities.InicioActivity
 import java.util.Calendar
 
 class RecordFormFragment : Fragment() {
@@ -29,6 +30,16 @@ class RecordFormFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        // Resto de tu código
+
+        (activity as InicioActivity).setShowBackArrow(true)
+        (activity as InicioActivity).setBottomNavigationVisible(false)
+        (activity as InicioActivity).setDrawerEnabled(false)
+
+        // Resto de tu código
+    }
     private fun onScheduledDate() {
         val selectedCalendar = Calendar.getInstance()
         val year = selectedCalendar.get(Calendar.YEAR)
