@@ -33,5 +33,10 @@
         android:name="com.grupoc.project_health_fitness.view.fragments.AlimentacionFragment"
         android:label="Alimentación"
         tools:layout="@layout/fragment_alimentacion" />
+    <activity
+        android:id="@+id/mapaActivity"
+        android:name="com.grupoc.project_health_fitness.view.activities.MapaActivity"
+        android:label="activity_mapa"
+        tools:layout="@layout/activity_mapa" />
 
 </navigation>

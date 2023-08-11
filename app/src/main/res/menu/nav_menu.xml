@@ -13,9 +13,9 @@
             android:icon="@drawable/baseline_fitness_center_24"
             android:title="Fitness"/>
 
-        <item android:id="@+id/recorridoFragment"
+        <item android:id="@+id/mapaActivity"
             android:icon="@drawable/baseline_directions_run_24"
-            android:title="Recorrido"/>
+            android:title="Gimnasios cercanos"/>
 
         <item android:id="@+id/recordListFragment"
             android:icon="@drawable/baseline_medication_liquid_24"
