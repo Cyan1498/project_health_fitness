@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatImageButton
 import androidx.cardview.widget.CardView
 import androidx.navigation.NavController
 import androidx.navigation.Navigation.findNavController
@@ -17,8 +18,8 @@ class ConsumoAdapter(private val dataList: List<String>, private val onItemClick
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val consumoCard: CardView = itemView.findViewById(R.id.consumo_cardView)
-        val consumoAguaButton: ImageButton = itemView.findViewById(R.id.consumoAgua_button)
-        val alimentacionButton: Button = itemView.findViewById(R.id.alimentacion_button)
+        val consumoAguaButton: AppCompatImageButton = itemView.findViewById(R.id.consumoAgua_button)
+        val alimentacionButton: AppCompatImageButton = itemView.findViewById(R.id.alimentacion_button)
 
         init {
             alimentacionButton.setOnClickListener {

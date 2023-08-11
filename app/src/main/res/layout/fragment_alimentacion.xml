@@ -110,9 +110,10 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Calorias" />
-                            <EditText
+                            <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:textSize="20sp"
                                 android:hint="0" />
                         </LinearLayout>
                         <LinearLayout
@@ -127,9 +128,10 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Grasa" />
-                            <EditText
+                            <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:textSize="20sp"
                                 android:hint="0" />
                         </LinearLayout>
                     </LinearLayout>
@@ -153,9 +155,10 @@
                                 android:layout_height="wrap_content"
                                 android:text="Carbohidratos" />
 
-                            <EditText
+                            <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:textSize="20sp"
                                 android:hint="0" />
                         </LinearLayout>
 
@@ -173,9 +176,10 @@
                                 android:layout_height="wrap_content"
                                 android:text="Proteina" />
 
-                            <EditText
+                            <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:textSize="20sp"
                                 android:hint="0" />
                         </LinearLayout>
                     </LinearLayout>
@@ -195,8 +199,8 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
                     android:layout_weight="1"
                     android:layout_marginBottom="10dp"
                     app:startIconDrawable="@drawable/baseline_calendar_month_24"
@@ -210,7 +214,7 @@
                         android:focusable="false"
                         android:clickable="true"
                         android:maxLines="1"
-                        android:id="@+id/dtpicker" />
+                        android:id="@+id/dtpicker_alimentacion" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -233,7 +237,7 @@
                         android:focusable="false"
                         android:clickable="true"
                         android:maxLines="1"
-                        android:id="@+id/timePicker" />
+                        android:id="@+id/timePicker_alimentacion" />
 
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>

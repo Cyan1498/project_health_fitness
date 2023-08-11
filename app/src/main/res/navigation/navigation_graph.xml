@@ -26,12 +26,12 @@
     <fragment
         android:id="@+id/consumoFragment"
         android:name="com.grupoc.project_health_fitness.view.fragments.ConsumoFragment"
-        android:label="fragment_consumo"
+        android:label="Consumo"
         tools:layout="@layout/fragment_consumo" />
     <fragment
         android:id="@+id/alimentacionFragment"
         android:name="com.grupoc.project_health_fitness.view.fragments.AlimentacionFragment"
-        android:label="fragment_alimentacion"
+        android:label="Alimentación"
         tools:layout="@layout/fragment_alimentacion" />
 
 </navigation>
