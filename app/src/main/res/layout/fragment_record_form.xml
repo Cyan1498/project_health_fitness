@@ -21,6 +21,7 @@
             android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edNameL"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -34,12 +35,14 @@
                 android:layout_gravity="start">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edName"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_gravity="center"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/dtPickerL"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -59,7 +62,7 @@
                     android:clickable="true"
                     android:inputType="date"
                     android:maxLines="1"
-                    android:id="@+id/dtpicker"/>
+                    android:id="@+id/dtPicker"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
@@ -69,6 +72,7 @@
                 android:orientation="horizontal">
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/autoCompInstructionL"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     android:layout_width="wrap_content"
                     android:layout_weight="1"
@@ -80,8 +84,8 @@
                     android:layout_height="wrap_content">
 
                     <AutoCompleteTextView
+                        android:id="@+id/autoCompInstruction"
                         android:inputType="none"
-                        android:id="@+id/autoComInstruciones"
                         android:layout_width="match_parent"
                         android:layout_gravity="center"
                         android:layout_height="60dp"/>
@@ -89,18 +93,19 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/autoCompUnitsL"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     android:layout_width="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="10dp"
-                    android:hint="Pastilla"
+                    android:hint="Unidad"
                     app:startIconTint="@color/lavender"
                     android:layout_gravity="start"
                     android:layout_height="wrap_content">
 
                     <AutoCompleteTextView
-                        android:id="@+id/autoCompPastilla"
+                        android:id="@+id/autoCompUnits"
                         android:layout_width="match_parent"
                         android:layout_gravity="center"
                         android:layout_height="60dp"/>
@@ -116,26 +121,30 @@
                 android:orientation="horizontal">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="5dp"
-                    android:hint="Fecha de Fin"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:hint="Fecha Fin"
                     app:startIconTint="@color/lavender"
                     android:layout_gravity="start"
                     android:layout_height="wrap_content">
 
-                    <AutoCompleteTextView
-                        android:inputType="none"
-                        android:id="@+id/autocomFechaFin"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/fechafin"
                         android:layout_width="match_parent"
                         android:layout_gravity="center"
+                        android:inputType="number"
+                        android:maxLength="2"
+                        android:focusable="false"
+                        android:clickable="false"
                         android:layout_height="60dp"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/edNumdiasL"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="wrap_content"
                     android:layout_weight="1"
@@ -147,7 +156,7 @@
                     android:layout_height="wrap_content">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/numdias"
+                        android:id="@+id/edNumdias"
                         android:layout_width="match_parent"
                         android:layout_gravity="center"
                         android:inputType="number"
@@ -160,6 +169,7 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edNoteL"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -177,13 +187,23 @@
                     android:layout_gravity="top|start"
                     android:inputType="textMultiLine"
                     android:lines="5"
-
                     android:maxLines="5"
                     android:scrollbars="vertical"
-                    android:id="@+id/idnote"/>
+                    android:id="@+id/edNote"/>
             </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabAddRecord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="16dp"
+            android:contentDescription="@string/add_item"
+            android:src="@drawable/ic_check"
+            android:background="@color/lavender"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

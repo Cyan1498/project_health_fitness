@@ -20,14 +20,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:visibility="gone"/>
+        android:visibility="visible"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintTop_toBottomOf="@id/lottieLoading"
-        app:layout_constraintBottom_toTopOf="@id/fabAddUser"
+        app:layout_constraintBottom_toTopOf="@id/fabShowRecord"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:padding="8dp"
@@ -35,7 +36,7 @@
         tools:listitem="@layout/item_recyclerview" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabAddUser"
+        android:id="@+id/fabShowRecord"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
@@ -52,9 +53,9 @@
         android:layout_height="64dp"
         android:background="@drawable/circle"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@id/fabAddUser"
-        app:layout_constraintEnd_toEndOf="@id/fabAddUser"
-        app:layout_constraintStart_toStartOf="@id/fabAddUser"
-        app:layout_constraintTop_toTopOf="@id/fabAddUser" />
+        app:layout_constraintBottom_toBottomOf="@id/fabShowRecord"
+        app:layout_constraintEnd_toEndOf="@id/fabShowRecord"
+        app:layout_constraintStart_toStartOf="@id/fabShowRecord"
+        app:layout_constraintTop_toTopOf="@id/fabShowRecord" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

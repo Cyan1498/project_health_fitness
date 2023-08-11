@@ -27,6 +27,11 @@
         android:id="@+id/recordFormFragment"
         android:name="com.grupoc.project_health_fitness.view.fragments.recordatorio.RecordFormFragment"
         android:label="fragment_record_form"
-        tools:layout="@layout/fragment_record_form" />
+        tools:layout="@layout/fragment_record_form" >
+<!--        <argument-->
+<!--            android:name="recordToEdit"-->
+<!--            app:argType="com.grupoc.project_health_fitness.model.Recordatorio"-->
+<!--            />-->
+    </fragment>
 
 </navigation>
