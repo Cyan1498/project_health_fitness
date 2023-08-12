@@ -90,7 +90,7 @@ class InicioActivity : AppCompatActivity(){
         }
 
 
-//        showUserInfo(email.toString(), user.toString())
+        showUserInfo(email.toString(), user.toString())
 
 //        navigationView.setNavigationItemSelectedListener { menuItem ->
 //            when (menuItem.itemId) {
@@ -133,10 +133,7 @@ class InicioActivity : AppCompatActivity(){
 //        binding.drawerLayout.closeDrawers()
 //    }
 //
-//    private fun logoutMenu() {
-//        FirebaseUser.signOut()
-//        startActivity(Intent(this, MainActivity::class.java))
-//    }
+
 //
 //    private fun showLogoutConfirmationDialog() {
 //        val alertDialog = AlertDialog.Builder(this)
@@ -149,13 +146,20 @@ class InicioActivity : AppCompatActivity(){
 //        alertDialog.show()
 //    }
 
-        //    private fun showUserInfo(email: String, user: String) {
-//        val headerView = binding.navView.getHeaderView(0)
-//        val tvemail = headerView.findViewById<TextView>(R.id.tv_email_menu)
-//        val tvuser = headerView.findViewById<TextView>(R.id.tv_user_menu)
-//        tvemail.text = email
-//        tvuser.text = user
-//    }
+
+    }
+
+    private fun showUserInfo(email: String, user: String) {
+        val headerView = binding.navView.getHeaderView(0)
+        val tvemail = headerView.findViewById<TextView>(R.id.tv_email_menu)
+        val tvuser = headerView.findViewById<TextView>(R.id.tv_user_menu)
+        tvemail.text = email
+        tvuser.text = user
+    }
+
+    private fun logoutMenu() {
+        FirebaseUser.signOut()
+        startActivity(Intent(this, MainActivity::class.java))
     }
 
     private fun setupBottomNavigation() {
