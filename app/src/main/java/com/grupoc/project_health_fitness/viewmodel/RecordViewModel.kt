@@ -26,33 +26,17 @@ class RecordViewModel : ViewModel() {
     private val _unknownErrorEvent = MutableLiveData<Boolean>()
     val unknownErrorEvent: LiveData<Boolean> get() = _unknownErrorEvent
 
+
     private val firestore = FirebaseFirestore.getInstance()
     private val recordatoriosCollection = firestore.collection("recordatorios")
 
     // Método para crear un nuevo recordatorio
-    fun registerRecordatorio(
-        name: String,
-        dateInit: String,
-        instruction: String,
-        unit: String,
-        numDias: Int,
-        note: String
-    ) {
+    fun registerRecordatorio(name: String, dateInit: String, instruction: String, unit: String, numDias: Int, note: String) {
         //obtener un ID único que Firestore generaría para un documento que aún no ha sido creado en la colección.
         val id = recordatoriosCollection.document().id
-        val recordatorio = Recordatorio(
-            id = id,
-            name = name,
-            dateInit = dateInit,
-            instruction = instruction,
-            unit = unit,
-            numDias = numDias,
-            note = note,
-            createdAt = Timestamp.now()
-        )
+        val recordatorio = Recordatorio(id = id, name = name, dateInit = dateInit, instruction = instruction, unit = unit, numDias = numDias, note = note, createdAt = Timestamp.now())
         addRecordatorioToFirestore(recordatorio)
     }
-
     private fun addRecordatorioToFirestore(recordatorio: Recordatorio) {
         recordatoriosCollection.add(recordatorio)
             .addOnSuccessListener {
@@ -64,26 +48,8 @@ class RecordViewModel : ViewModel() {
     }
 
     // Método para actualizar un recordatorio existente
-    fun updateRecordatorio(
-        recordatorioId: String,
-        name: String,
-        dateInit: String,
-        instruction: String,
-        unit: String,
-        numDias: Int,
-        note: String
-    ) {
-        val updatedRecordatorio = Recordatorio(
-            recordatorioId,
-            name,
-            dateInit,
-            instruction,
-            unit,
-            numDias,
-            note,
-            createdAt = Timestamp.now()
-        )
-
+    fun updateRecordatorio(recordatorioId: String, name: String, dateInit: String, instruction: String, unit: String, numDias: Int, note: String) {
+        val updatedRecordatorio = Recordatorio(recordatorioId, name, dateInit, instruction, unit, numDias, note, createdAt = Timestamp.now())
         recordatoriosCollection.document(recordatorioId)
             .set(updatedRecordatorio)
             .addOnSuccessListener {
@@ -144,8 +110,6 @@ class RecordViewModel : ViewModel() {
                 unitsLiveData.value = units
             }
             .addOnFailureListener { exception ->
-                // Handle failure
-                // Puedes establecer un mensaje de error o manejarlo según los requisitos de tu aplicación
             }
 
         return unitsLiveData

@@ -79,6 +79,7 @@ class RecordListFragment : Fragment(), OnRecordClickListener {
         super.onResume()
         binding.fabShowRecord.isVisible = true
         binding.circle.isVisible = false
+
     }
 
     private fun setupRecyclerView() {
@@ -101,6 +102,7 @@ class RecordListFragment : Fragment(), OnRecordClickListener {
             // y luego ocultarías la animación de carga
             loadingAnimationView.visibility = View.GONE
         }
+
     }
     override fun onRecordItemClick(record: Recordatorio) {
 //        TODO("Not yet implemented")
@@ -116,5 +118,6 @@ class RecordListFragment : Fragment(), OnRecordClickListener {
 //        )
 //        findNavController().navigate(action)
     }
+
 
 }

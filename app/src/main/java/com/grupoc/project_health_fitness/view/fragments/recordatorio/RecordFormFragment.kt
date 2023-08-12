@@ -1,5 +1,6 @@
 package com.grupoc.project_health_fitness.view.fragments.recordatorio
 
+import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.icu.text.SimpleDateFormat
 import android.os.Bundle
@@ -8,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import androidx.activity.addCallback
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
@@ -16,9 +18,11 @@ import com.google.firebase.Timestamp
 import com.grupoc.project_health_fitness.R
 import com.grupoc.project_health_fitness.databinding.FragmentRecordFormBinding
 import com.grupoc.project_health_fitness.model.Recordatorio
+import com.grupoc.project_health_fitness.utils.ExitConfirmationDialog
 import com.grupoc.project_health_fitness.utils.SnackbarUtils
 import com.grupoc.project_health_fitness.utils.validations.RecordFormValidator
 import com.grupoc.project_health_fitness.view.activities.InicioActivity
+import com.grupoc.project_health_fitness.view.fragments.recordatorio.adapter.RecordAdapter
 import com.grupoc.project_health_fitness.viewmodel.RecordViewModel
 import java.util.Calendar
 import java.util.Locale
@@ -30,6 +34,7 @@ class RecordFormFragment : Fragment() {
     private lateinit var loadingAnimationView: LottieAnimationView
     private val viewModel: RecordViewModel by viewModels()
     private lateinit var recordFormValidator: RecordFormValidator
+    private lateinit var recordAdapter: RecordAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,6 +53,10 @@ class RecordFormFragment : Fragment() {
         senShowRecorData()
         addOfUpdateRecord()
 //        observerData()
+        // Configurar el evento de retroceso del dispositivo
+//        requireActivity().onBackPressedDispatcher.addCallback(this) {
+//            showExitConfirmationDialog()
+//        }
         return binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -58,7 +67,12 @@ class RecordFormFragment : Fragment() {
         (activity as InicioActivity).setBottomNavigationVisible(false)
         (activity as InicioActivity).setDrawerEnabled(false)
         observerData()
-        // Resto de tu código
+        // Configurar el evento de retroceso del dispositivo
+        requireActivity().onBackPressedDispatcher.addCallback(this) {
+            ExitConfirmationDialog.show(requireContext()) {
+                requireActivity().supportFragmentManager.popBackStack()
+            }
+        }
     }
     private fun onScheduledDate() {
         val selectedCalendar = Calendar.getInstance()
@@ -178,6 +192,10 @@ class RecordFormFragment : Fragment() {
                 backgroundColor = SnackbarUtils.SnackbarColors.CUSTOM_COLOR
             )
         }
+//        viewModel.getAllRecordatorios().observe(viewLifecycleOwner) { recordList ->
+//            val sortedList = recordList.sortedByDescending { it.createdAt }
+//            recordAdapter.updateData(sortedList)
+//        }
     }
     private fun senShowRecorData(){
         val selectedRecord = arguments?.getParcelable<Recordatorio>("recordToEdit")
@@ -194,4 +212,15 @@ class RecordFormFragment : Fragment() {
         binding.edNumdias.setText(selectedRecord.numDias.toString())
         binding.edNote.setText(selectedRecord.note)
     }
+
+//    private fun showExitConfirmationDialog() {
+//        val dialogBuilder = AlertDialog.Builder(requireContext())
+//        dialogBuilder.setMessage("¿Estás seguro de salir sin guardar cambios?")
+//            .setPositiveButton("Salir") { _, _ ->
+//                // Navegar hacia atrás sin guardar cambios
+//                requireActivity().supportFragmentManager.popBackStack()
+//            }
+//            .setNegativeButton("Cancelar", null)
+//            .show()
+//    }
 }
