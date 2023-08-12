@@ -48,6 +48,7 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.10.1'
     implementation 'com.google.firebase:firebase-firestore-ktx:24.7.0'
     implementation 'com.google.firebase:firebase-auth-ktx:22.1.0'
+//    implementation 'com.firebaseui:firebase-ui-firestore:8.0.0'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.6.0'
     implementation 'androidx.navigation:navigation-ui-ktx:2.6.0'
     //implementation 'androidx.navigation:navigation-view-ktx:2.6.0'

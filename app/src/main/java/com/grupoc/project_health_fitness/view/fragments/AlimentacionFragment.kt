@@ -27,7 +27,11 @@ class AlimentacionFragment : Fragment() {
 
         añadir.setOnClickListener {
             val showAgregarAlimento = AgregarAlimentoFragment()
-            showAgregarAlimento.show((activity as AppCompatActivity).supportFragmentManager,"showAgregarAlimento")}
+            showAgregarAlimento.show(
+                (activity as AppCompatActivity).supportFragmentManager,
+                "showAgregarAlimento"
+            )
+        }
 
     }
 }
