@@ -20,18 +20,21 @@ class RecordAdapter(
 
     override fun onBindViewHolder(holder: RecordViewHolder, position: Int) {
         val item = recordList[position]
+        holder.itemView.setOnClickListener {
+            itemClickListener.onRecordItemClick(item)
+        }
         holder.render(item)
     }
 
     override fun getItemCount(): Int = recordList.size
 
-    fun updateData(newList: List<Recordatorio>) {
-        recordList = newList
-        notifyDataSetChanged()
-    }
 //    fun updateData(newList: List<Recordatorio>) {
-//        val diffResult = DiffUtil.calculateDiff(RecordDiffCallback(recordList, newList))
 //        recordList = newList
-//        diffResult.dispatchUpdatesTo(this)
+//        notifyDataSetChanged()
 //    }
+    fun updateData(newList: List<Recordatorio>) {
+        val diffResult = DiffUtil.calculateDiff(RecordDiffCallback(recordList, newList))
+        recordList = newList
+        diffResult.dispatchUpdatesTo(this)
+    }
 }

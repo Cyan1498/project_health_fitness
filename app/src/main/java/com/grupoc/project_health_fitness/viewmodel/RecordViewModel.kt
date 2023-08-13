@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.grupoc.project_health_fitness.model.Recordatorio
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FirebaseFirestore
+import com.grupoc.project_health_fitness.model.Units
 
 class RecordViewModel : ViewModel() {
 
@@ -25,7 +26,13 @@ class RecordViewModel : ViewModel() {
     //Para algun error
     private val _unknownErrorEvent = MutableLiveData<Boolean>()
     val unknownErrorEvent: LiveData<Boolean> get() = _unknownErrorEvent
+    //Units
+    // LiveData para las unidades
+    private val _unitNames = MutableLiveData<List<String>>()
+    val unitNames: LiveData<List<String>> = _unitNames
 
+    private val _unitIds = MutableLiveData<List<String>>()
+    val unitIds: LiveData<List<String>> = _unitIds
 
     private val firestore = FirebaseFirestore.getInstance()
     private val recordatoriosCollection = firestore.collection("recordatorios")
@@ -38,7 +45,7 @@ class RecordViewModel : ViewModel() {
         addRecordatorioToFirestore(recordatorio)
     }
     private fun addRecordatorioToFirestore(recordatorio: Recordatorio) {
-        recordatoriosCollection.add(recordatorio)
+        recordatoriosCollection.document(recordatorio.id!!).set(recordatorio)
             .addOnSuccessListener {
                 _signupSuccess.value = true
             }
@@ -114,4 +121,28 @@ class RecordViewModel : ViewModel() {
 
         return unitsLiveData
     }
+    // Método para obtener las unidades desde Firestore
+//    fun getUnits() {
+//        val unitsCollection = firestore.collection("units")
+//
+//        unitsCollection.get()
+//            .addOnSuccessListener { querySnapshot ->
+//                val unitNames = mutableListOf<String>()
+//                val unitIds = mutableListOf<String>()
+//
+//                for (document in querySnapshot) {
+//                    val unit = document.toObject(Units::class.java)
+//                    unitNames.add(unit.name)
+//                    unitIds.add(document.id)
+//                }
+//                _unitNames.value = unitNames
+//                _unitIds.value = unitIds
+//            }
+//            .addOnFailureListener { exception ->
+//                // Handle failure
+//            }
+//    }
+
+
+
 }

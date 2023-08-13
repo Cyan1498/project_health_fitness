@@ -11,7 +11,7 @@ data class Recordatorio(
 //    val dateInit: Timestamp?,
     val dateInit: String?,
     val instruction: String?,
-    val unit: String?,
+    val unit: String,
     val numDias: Int?,
     val note: String?,
     val createdAt: Timestamp? = null
@@ -22,7 +22,7 @@ data class Recordatorio(
         null,
         null,
         null,
-        null,
+        "",
         null,
         null,
     )
