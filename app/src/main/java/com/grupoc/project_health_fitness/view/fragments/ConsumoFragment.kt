@@ -1,17 +1,25 @@
 package com.grupoc.project_health_fitness.view.fragments
 
+import android.animation.LayoutTransition
+import android.animation.ValueAnimator
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.transition.AutoTransition
+import androidx.transition.TransitionManager
 import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.card.MaterialCardView
+import com.google.android.play.core.integrity.v
 import com.grupoc.project_health_fitness.ConsumoAdapter
 import com.grupoc.project_health_fitness.R
 import java.text.SimpleDateFormat
@@ -60,15 +68,6 @@ class ConsumoFragment : Fragment(), ConsumoAdapter.OnItemClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-     //   val onConsumoAgua: Button = view.findViewById(R.id.consumoAgua_button)
-      //  val onAlimentacion: Button = view.findViewById(R.id.alimentacion_button)
-
-      //  onConsumoAgua.setOnClickListener {
-      //      val showConsumoAgua = ConsumoAguaFragment()
-       //     showConsumoAgua.show(
-         //       (activity as AppCompatActivity).supportFragmentManager, "showAgregarAlimento"
-
         val hoyText: TextView = view.findViewById(R.id.hoy_text)
         val nextButton: Button = view.findViewById(R.id.next_button)
         val previousButton: Button = view.findViewById(R.id.previous_button)
@@ -79,11 +78,11 @@ class ConsumoFragment : Fragment(), ConsumoAdapter.OnItemClickListener {
         val adapter = ConsumoAdapter(dataList, this)
         viewPager2.adapter = adapter
         // Formatear la fecha en el formato deseado
-      //  val dateFormat = SimpleDateFormat("dd/MM", Locale.getDefault())
-      //  val formattedDate = dateFormat.format(currentDate)
+        //  val dateFormat = SimpleDateFormat("dd/MM", Locale.getDefault())
+        //  val formattedDate = dateFormat.format(currentDate)
 
         // Establecer el texto del botón con la fecha actual formateada
-       // hoyText.text = formattedDate
+        // hoyText.text = formattedDate
 
         updateDateText(hoyText)
 
@@ -93,7 +92,6 @@ class ConsumoFragment : Fragment(), ConsumoAdapter.OnItemClickListener {
             dataList.add("Item $dayCounter")// Agregar el nuevo elemento a dataList
             viewPager2.currentItem = viewPager2.currentItem + 1
             adapter.notifyDataSetChanged() // Notificar al adaptador que los datos han cambiado
-
         }
 
         previousButton.setOnClickListener {
@@ -102,7 +100,8 @@ class ConsumoFragment : Fragment(), ConsumoAdapter.OnItemClickListener {
             viewPager2.currentItem = viewPager2.currentItem - 1
         }
 
-        }
+    }
+
 
     override fun onAlimentacionButtonClick() {
         findNavController().navigate(R.id.alimentacionFragment)

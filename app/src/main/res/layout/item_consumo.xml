@@ -186,7 +186,8 @@
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="6dp">
+                        android:layout_margin="6dp"
+                        app:cardUseCompatPadding="true">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -205,11 +206,11 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:text="Consumo de Agua"
-                                    android:textSize="12sp"
+                                    android:textSize="16sp"
                                     android:textStyle="bold" />
 
                                 <androidx.appcompat.widget.AppCompatImageButton
-                                    android:layout_width="12dp"
+                                    android:layout_width="18dp"
                                     android:id="@+id/consumoAgua_button"
                                     android:layout_height="match_parent"
                                     android:layout_marginStart="5dp"
@@ -219,11 +220,40 @@
                                     />
                             </LinearLayout>
 
-                            <ProgressBar
-                                android:id="@+id/progressBarHorizontalConsumoAgua"
-                                style="?android:attr/progressBarStyleHorizontal"
+                            <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/consumo_agua_consumo"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="0"
+                                        android:gravity="start" />
+
+                                    <TextView
+                                        android:id="@+id/consumo_agua_total"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="0"
+                                        android:gravity="end" />
+                                </LinearLayout>
+
+                                <ProgressBar
+                                    android:id="@+id/progressBarHorizontalConsumoAgua"
+                                    style="?android:attr/progressBarStyleHorizontal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content" />
+                            </LinearLayout>
                         </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
 
@@ -232,18 +262,22 @@
             <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="6dp">
+                    android:id="@+id/cardViewAlimentacion"
+                    android:layout_margin="6dp"
+                    app:cardUseCompatPadding="true">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:id="@+id/linear_alimentacion"
                         android:layout_marginHorizontal="10dp"
                         android:layout_marginVertical="10dp"
                         android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:id="@+id/linear_titulo_alimentacion">
 
                             <TextView
                                 android:id="@+id/alimentacion_text"
@@ -251,7 +285,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="Alimentacion"
-                                android:textSize="12sp"
+                                android:textSize="16sp"
                                 android:textStyle="bold"/>
 
                             <androidx.appcompat.widget.AppCompatImageButton
@@ -263,12 +297,44 @@
                                 android:layout_marginBottom="5dp"
                                 android:src="@drawable/ic_plus"
                                 />
+
+
                         </LinearLayout>
-                        <ProgressBar
-                            android:id="@+id/progressBarHorizontalAlimentacion"
-                            style="?android:attr/progressBarStyleHorizontal"
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="match_parent"
+                            android:id="@+id/linear_contenido"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/alimentacion_consumo"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="0"
+                                    android:gravity="start" />
+
+                                <TextView
+                                    android:id="@+id/alimentacion_total"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="0"
+                                    android:gravity="end" />
+                            </LinearLayout>
+
+                            <ProgressBar
+                                android:id="@+id/progressBarHorizontalAlimentacion"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
