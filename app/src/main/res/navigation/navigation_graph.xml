@@ -34,11 +34,6 @@
         android:name="com.grupoc.project_health_fitness.view.fragments.AlimentacionFragment"
         android:label="Alimentación"
         tools:layout="@layout/fragment_alimentacion" />
-    <activity
-        android:id="@+id/mapaActivity"
-        android:name="com.grupoc.project_health_fitness.view.activities.MapaActivity"
-        android:label="activity_mapa"
-        tools:layout="@layout/activity_mapa" />
     <fragment
         android:id="@+id/fitnessFragment"
         android:name="com.grupoc.project_health_fitness.view.fragments.fitness.FitnessFragment"
@@ -53,5 +48,9 @@
         android:name="com.grupoc.project_health_fitness.view.fragments.fitness.AddFitnessFragment"
         android:label="fragment_add_fitness"
         tools:layout="@layout/fragment_add_fitness" />
+    <fragment
+        android:id="@+id/mapaFragment"
+        android:name="com.grupoc.project_health_fitness.view.fragments.MapaFragment"
+        android:label="MapaFragment" />
 
 </navigation>
