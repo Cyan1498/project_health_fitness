@@ -31,6 +31,8 @@
             android:layout_marginBottom="80dp"
             app:defaultNavHost="true"
             app:navGraph="@navigation/navigation_graph" />
+
+
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout

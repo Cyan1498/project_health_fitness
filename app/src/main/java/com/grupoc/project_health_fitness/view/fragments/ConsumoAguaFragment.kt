@@ -13,7 +13,6 @@ import com.grupoc.project_health_fitness.R
 
 class ConsumoAguaFragment : DialogFragment() {
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

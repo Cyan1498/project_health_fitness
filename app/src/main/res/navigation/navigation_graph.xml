@@ -37,7 +37,7 @@
     <fragment
         android:id="@+id/fitnessFragment"
         android:name="com.grupoc.project_health_fitness.view.fragments.fitness.FitnessFragment"
-        android:label="fragment_fitness"
+        android:label="Fitnees"
         tools:layout="@layout/fragment_fitness" >
         <action
             android:id="@+id/action_fitnessFragment_to_addFitnessFragment"
@@ -46,11 +46,11 @@
     <fragment
         android:id="@+id/addFitnessFragment"
         android:name="com.grupoc.project_health_fitness.view.fragments.fitness.AddFitnessFragment"
-        android:label="fragment_add_fitness"
+        android:label="Añadir Fitness"
         tools:layout="@layout/fragment_add_fitness" />
     <fragment
         android:id="@+id/mapaFragment"
         android:name="com.grupoc.project_health_fitness.view.fragments.MapaFragment"
-        android:label="MapaFragment" />
+        android:label="Mapa" />
 
 </navigation>
