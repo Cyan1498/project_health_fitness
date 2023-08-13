@@ -50,13 +50,9 @@ class RecordFormFragment : Fragment() {
 //        btnAddRecord()
 //        val args: RecordFormFragmentArgs by navArgs()
 //        val selectedRecord = args.recordToEdit
-        senShowRecorData()
+//        senShowRecorData()
         addOfUpdateRecord()
-//        observerData()
-        // Configurar el evento de retroceso del dispositivo
-//        requireActivity().onBackPressedDispatcher.addCallback(this) {
-//            showExitConfirmationDialog()
-//        }
+        observerData()
         return binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -66,7 +62,7 @@ class RecordFormFragment : Fragment() {
         (activity as InicioActivity).setShowBackArrow(true)
         (activity as InicioActivity).setBottomNavigationVisible(false)
         (activity as InicioActivity).setDrawerEnabled(false)
-        observerData()
+//        observerData()
         // Configurar el evento de retroceso del dispositivo
         requireActivity().onBackPressedDispatcher.addCallback(this) {
             ExitConfirmationDialog.show(requireContext()) {
@@ -126,6 +122,10 @@ class RecordFormFragment : Fragment() {
         }
     }
     private fun addOfUpdateRecord() {
+        val selectedRecord = arguments?.getParcelable<Recordatorio>("recordToEdit")
+        if (selectedRecord != null) {
+            showRecordData(selectedRecord)
+        }
         binding.fabAddRecord.setOnClickListener {
             val nameUser = binding.edName.text.toString().trim()
             val dateInit = binding.dtPicker.text.toString().trim()
@@ -138,7 +138,7 @@ class RecordFormFragment : Fragment() {
 
             val formValidator = RecordFormValidator(binding)
             if (formValidator.validateForm()) {
-                val selectedRecord = arguments?.getParcelable<Recordatorio>("recordToEdit")
+
 //                loadingAnimationView.visibility = View.VISIBLE
 //                loadingAnimationView.playAnimation()
                 // Ocultar el formulario y mostrar la animación de carga
@@ -197,13 +197,13 @@ class RecordFormFragment : Fragment() {
 //            recordAdapter.updateData(sortedList)
 //        }
     }
-    private fun senShowRecorData(){
-        val selectedRecord = arguments?.getParcelable<Recordatorio>("recordToEdit")
-        if (selectedRecord != null) {
-            showRecordData(selectedRecord)
-        }
-
-    }
+//    private fun senShowRecorData(){
+//        val selectedRecord = arguments?.getParcelable<Recordatorio>("recordToEdit")
+//        if (selectedRecord != null) {
+//            showRecordData(selectedRecord)
+//        }
+//
+//    }
     private fun showRecordData(selectedRecord: Recordatorio) {
         binding.edName.setText(selectedRecord.name)
         binding.dtPicker.setText(selectedRecord.dateInit)
@@ -213,14 +213,4 @@ class RecordFormFragment : Fragment() {
         binding.edNote.setText(selectedRecord.note)
     }
 
-//    private fun showExitConfirmationDialog() {
-//        val dialogBuilder = AlertDialog.Builder(requireContext())
-//        dialogBuilder.setMessage("¿Estás seguro de salir sin guardar cambios?")
-//            .setPositiveButton("Salir") { _, _ ->
-//                // Navegar hacia atrás sin guardar cambios
-//                requireActivity().supportFragmentManager.popBackStack()
-//            }
-//            .setNegativeButton("Cancelar", null)
-//            .show()
-//    }
 }
