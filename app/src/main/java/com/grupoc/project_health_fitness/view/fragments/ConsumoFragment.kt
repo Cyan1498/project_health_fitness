@@ -95,9 +95,11 @@ class ConsumoFragment : Fragment(), ConsumoAdapter.OnItemClickListener {
         }
 
         previousButton.setOnClickListener {
-            dayCounter--
-            updateDateText(hoyText)
-            viewPager2.currentItem = viewPager2.currentItem - 1
+            if (viewPager2.currentItem > 0) {
+                viewPager2.currentItem = viewPager2.currentItem - 1
+                dayCounter--
+                updateDateText(hoyText)
+            }
         }
 
     }
@@ -126,6 +128,24 @@ class ConsumoFragment : Fragment(), ConsumoAdapter.OnItemClickListener {
            val newDate = calendar.time
            hoyTextView.text = dateFormat.format(newDate)
        }
+
+    private fun generateDataList(): MutableList<String> {
+        val dataList = mutableListOf<String>()
+        val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        val calendar = Calendar.getInstance()
+
+        // Agregar el primer elemento con la fecha actual
+        dataList.add(dateFormat.format(currentDate))
+
+        // Agregar los elementos posteriores con incremento de días
+        for (i in 1 until dataList.size) {
+            calendar.time = currentDate
+            calendar.add(Calendar.DAY_OF_YEAR, i)
+            dataList.add(dateFormat.format(calendar.time))
+        }
+
+        return dataList
+    }
 
     }
 
