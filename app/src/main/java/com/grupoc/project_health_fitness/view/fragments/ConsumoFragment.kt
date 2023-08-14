@@ -31,14 +31,17 @@ class ConsumoFragment : Fragment(), ConsumoAdapter.OnItemClickListener {
 
     private var currentDate = Calendar.getInstance().time
     private var dayCounter: Int = 0
+    private lateinit var viewPager2: ViewPager2
+    private lateinit var dataList: MutableList<String>
+    private lateinit var adapter: ConsumoAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_consumo, container, false)
-        val viewPager2: ViewPager2 = view.findViewById(R.id.viewPager2)
-       // val dataList = listOf("Item 1", "Item 2", "Item 3")
+
+               // val dataList = listOf("Item 1", "Item 2", "Item 3")
        // val adapter = ConsumoAdapter(dataList,this)
        // viewPager2.adapter = adapter
 
@@ -61,22 +64,22 @@ class ConsumoFragment : Fragment(), ConsumoAdapter.OnItemClickListener {
                 // Si estás en la primera página, puedes implementar algún comportamiento adicional aquí
         //    }
        // }
-    
 
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        viewPager2 = view.findViewById(R.id.viewPager2)
+        dataList = mutableListOf("Item 1")
+        adapter = ConsumoAdapter(dataList, this)
+        viewPager2.adapter = adapter
+
         val hoyText: TextView = view.findViewById(R.id.hoy_text)
         val nextButton: Button = view.findViewById(R.id.next_button)
         val previousButton: Button = view.findViewById(R.id.previous_button)
-        val viewPager2: ViewPager2 = view.findViewById(R.id.viewPager2)
 
-        // Obtener la fecha actual
-        val dataList = mutableListOf<String>()
-        val adapter = ConsumoAdapter(dataList, this)
-        viewPager2.adapter = adapter
         // Formatear la fecha en el formato deseado
         //  val dateFormat = SimpleDateFormat("dd/MM", Locale.getDefault())
         //  val formattedDate = dateFormat.format(currentDate)
@@ -89,9 +92,10 @@ class ConsumoFragment : Fragment(), ConsumoAdapter.OnItemClickListener {
         nextButton.setOnClickListener {
             dayCounter++
             updateDateText(hoyText)
-            dataList.add("Item $dayCounter")// Agregar el nuevo elemento a dataList
+            val newItem = "Item $dayCounter"
+            dataList.add(newItem)
             viewPager2.currentItem = viewPager2.currentItem + 1
-            adapter.notifyDataSetChanged() // Notificar al adaptador que los datos han cambiado
+            adapter.notifyItemInserted(dataList.size - 1) // Notificar al adaptador que los datos han cambiado
         }
 
         previousButton.setOnClickListener {
@@ -101,12 +105,12 @@ class ConsumoFragment : Fragment(), ConsumoAdapter.OnItemClickListener {
                 updateDateText(hoyText)
             }
         }
-
     }
 
 
     override fun onAlimentacionButtonClick() {
-        findNavController().navigate(R.id.action_consumoFragment_to_alimentacionFragment)
+        findNavController().navigate(R.id.alimentacionFragment)
+
     }
 
 // onAlimentacion.setOnClickListener {
@@ -129,23 +133,6 @@ class ConsumoFragment : Fragment(), ConsumoAdapter.OnItemClickListener {
            hoyTextView.text = dateFormat.format(newDate)
        }
 
-    private fun generateDataList(): MutableList<String> {
-        val dataList = mutableListOf<String>()
-        val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-        val calendar = Calendar.getInstance()
-
-        // Agregar el primer elemento con la fecha actual
-        dataList.add(dateFormat.format(currentDate))
-
-        // Agregar los elementos posteriores con incremento de días
-        for (i in 1 until dataList.size) {
-            calendar.time = currentDate
-            calendar.add(Calendar.DAY_OF_YEAR, i)
-            dataList.add(dateFormat.format(calendar.time))
-        }
-
-        return dataList
-    }
 
     }
 
