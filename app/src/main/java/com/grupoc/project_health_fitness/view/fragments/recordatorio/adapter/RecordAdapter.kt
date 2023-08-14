@@ -26,9 +26,11 @@ class RecordAdapter(
         holder.render(item)
     }
 
-    override fun getItemCount(): Int = recordList.size
+    override fun getItemCount(): Int {
+        return recordList.size
+    }
 
-//    fun updateData(newList: List<Recordatorio>) {
+//        fun updateData(newList: List<Recordatorio>) {
 //        recordList = newList
 //        notifyDataSetChanged()
 //    }

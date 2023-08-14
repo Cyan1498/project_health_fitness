@@ -104,7 +104,7 @@ class ConsumoFragment : Fragment(), ConsumoAdapter.OnItemClickListener {
 
 
     override fun onAlimentacionButtonClick() {
-        findNavController().navigate(R.id.alimentacionFragment)
+        findNavController().navigate(R.id.action_consumoFragment_to_alimentacionFragment)
     }
 
 // onAlimentacion.setOnClickListener {

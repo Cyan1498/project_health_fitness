@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.core.view.isVisible
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,6 +24,7 @@ import com.grupoc.project_health_fitness.R
 import com.grupoc.project_health_fitness.databinding.FragmentFitnessBinding
 import com.grupoc.project_health_fitness.model.Fitness
 import com.grupoc.project_health_fitness.view.fragments.fitness.adapter.FitnessAdapter
+import com.grupoc.project_health_fitness.viewmodel.FitnessViewModel
 
 class FitnessFragment : Fragment() {
 
@@ -30,7 +33,8 @@ class FitnessFragment : Fragment() {
 
     private lateinit var recyclerfitness: RecyclerView
     private lateinit var fitnessArrayList: ArrayList<Fitness>
-    private lateinit var adapter: FitnessAdapter
+    private lateinit var fitnessAdapter: FitnessAdapter
+    private val viewModel: FitnessViewModel by viewModels()
     private lateinit var db: FirebaseFirestore
     private lateinit var buttonAdd: Button
 //    private val fitnessRef = db.collection("excercises")
@@ -42,6 +46,7 @@ class FitnessFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentFitnessBinding.inflate(inflater, container, false)
 
+//        fitnessViewModel = ViewModelProvider(this).get(FitnessViewModel::class.java)
 
         binding.addFitness.setOnClickListener(object : View.OnClickListener {
             override fun onClick(p0: View?) {
@@ -56,7 +61,8 @@ class FitnessFragment : Fragment() {
         recyclerfitness.setHasFixedSize(true)
 
         fitnessArrayList = arrayListOf()
-        adapter = FitnessAdapter(fitnessArrayList)
+        fitnessAdapter = FitnessAdapter(fitnessArrayList)
+        recyclerfitness.adapter = fitnessAdapter
 
 //        val query = FirebaseFirestore.getInstance().collection("excercises")
 //        val fitnessArrayList = FirestoreRecyclerOptions.Builder<Fitness>()
@@ -64,7 +70,9 @@ class FitnessFragment : Fragment() {
 //            .build()
 //        adapter = FitnessAdapter(fitnessArrayList)
 
-        recyclerfitness.adapter = adapter
+
+        setupRecyclerFitness()
+        observeRecordData()
 
         val itemTouchHelperCallback = object :
             ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
@@ -77,10 +85,15 @@ class FitnessFragment : Fragment() {
             }
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                adapter.deleteItem(viewHolder.adapterPosition)
+//                adapter.deleteItem(viewHolder.adapterPosition)
 //                val position = viewHolder.bindingAdapterPosition
 //                val documentSnapshot = adapter.snapshots.getSnapshot(position)
 //                adapter.deleteItem(position)
+                val position = viewHolder.adapterPosition
+//                val fitness = fitnessArrayList[position]
+                val fitness = fitnessAdapter.getFitnessAtPosition(position)
+                viewModel.deleteFitness(fitness)
+                observeRecordData()
             }
 
         }
@@ -88,27 +101,46 @@ class FitnessFragment : Fragment() {
         val itemTouchHelper = ItemTouchHelper(itemTouchHelperCallback)
         itemTouchHelper.attachToRecyclerView(recyclerfitness)
 
-        setupRecyclerFitness()
+
 
         return binding.root
     }
 
+    private fun observeRecordData() {
+        viewModel.getAllFitness().observe(viewLifecycleOwner) { fitnessList ->
+            // Aquí actualizarías el RecyclerView con los datos cargados
+            //Poder ordenar los item
+//            val sortedList = recordList.sortedByDescending { it.createdAt }
+//            recordAdapter.updateData(sortedList)
+            fitnessAdapter.updateData(fitnessList)
+            // y luego ocultarías la animación de carga
+//            loadingAnimationView.visibility = View.GONE
+        }
+
+    }
+
     private fun setupRecyclerFitness() {
-        db = FirebaseFirestore.getInstance()
-        db.collection("excercises").addSnapshotListener(object : EventListener<QuerySnapshot> {
-            override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
-                if (error != null) {
-                    Log.e("Firestore error", error.message.toString())
-                    return
-                }
-                for (dc: DocumentChange in value?.documentChanges!!) {
-                    if (dc.type == DocumentChange.Type.ADDED) {
-                        fitnessArrayList.add(dc.document.toObject(Fitness::class.java))
-                    }
-                }
-                adapter.notifyDataSetChanged()
-            }
-        })
+//        db = FirebaseFirestore.getInstance()
+//        db.collection("excercises").addSnapshotListener(object : EventListener<QuerySnapshot> {
+//            override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
+//                if (error != null) {
+//                    Log.e("Firestore error", error.message.toString())
+//                    return
+//                }
+//                for (dc: DocumentChange in value?.documentChanges!!) {
+//                    if (dc.type == DocumentChange.Type.ADDED) {
+//                        fitnessArrayList.add(dc.document.toObject(Fitness::class.java))
+//                    }
+//                }
+//                fitnessAdapter.notifyDataSetChanged()
+//            }
+//        })
+        fitnessAdapter = FitnessAdapter(emptyList())
+        binding.recyclerFitness.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = fitnessAdapter
+        }
+
     }
 
     override fun onDestroyView() {

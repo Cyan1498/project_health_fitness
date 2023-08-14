@@ -3,8 +3,10 @@ package com.grupoc.project_health_fitness.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.grupoc.project_health_fitness.model.Recordatorio
 import com.grupoc.project_health_fitness.model.User
 
 class UserViewModel : ViewModel() {
@@ -14,6 +16,9 @@ class UserViewModel : ViewModel() {
 
     private val _userAlreadyRegisteredEvent = MutableLiveData<Boolean>()
     val userAlreadyRegisteredEvent: LiveData<Boolean> get() = _userAlreadyRegisteredEvent
+
+    private val _updateSuccess = MutableLiveData<Boolean>()
+    val updateSuccess: LiveData<Boolean> get() = _updateSuccess
 
     private val _unknownErrorEvent = MutableLiveData<Boolean>()
     val unknownErrorEvent: LiveData<Boolean> get() = _unknownErrorEvent
@@ -39,10 +44,10 @@ class UserViewModel : ViewModel() {
                                     val currentUser = firebaseAuth.currentUser
                                     currentUser?.let {
                                         val user = User(
-                                            id = it.uid,
-                                            name = name,
-                                            email = email,
-                                            password = password
+//                                            id = it.uid,
+//                                            name = name,
+//                                            email = email,
+//                                            password = passwosrd
                                         )
                                         addUserToFirestore(user)
                                     }
@@ -67,6 +72,20 @@ class UserViewModel : ViewModel() {
             }
             .addOnFailureListener {
                 _unknownErrorEvent.value = true
+            }
+    }
+
+    fun updateUser(userId: String, name: String, email: String, password: String, weight: String, height: String) {
+        val updatedUser = User(userId, name, email, password, weight, height, createdAt = Timestamp.now())
+        usersCollection.document(userId)
+            .set(updatedUser)
+            .addOnSuccessListener {
+                _updateSuccess.value = true
+            }
+            .addOnFailureListener {
+                // Handle failure
+                _unknownErrorEvent.value = true
+                // You can set an error message or handle it as per your app's requirement
             }
     }
 
