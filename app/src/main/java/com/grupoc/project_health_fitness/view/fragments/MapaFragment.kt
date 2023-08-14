@@ -164,11 +164,9 @@ class MapaFragment : Fragment(), OnMapReadyCallback {
             }
         }
 
-        // on below line we are adding
-        // click listener for our home fab
         button_gym.setOnClickListener {
             clearParkMarkers()
-            // on below line we are displaying a toast message.
+
             Toast.makeText(requireContext(), "Marcando gimnasios...", Toast.LENGTH_SHORT).show()
             val markerBitmap = BitmapFactory.decodeResource(resources, R.drawable.icon_gym)
             val scaledBitmap = Bitmap.createScaledBitmap(markerBitmap, 60, 55, false)
@@ -201,8 +199,6 @@ class MapaFragment : Fragment(), OnMapReadyCallback {
             }
         }
 
-        // on below line we are adding on
-        // click listener for settings fab
         button_theme.setOnClickListener {
             // Cambiar el estilo del mapa al siguiente estilo.
             when (currentMapStyle) {
@@ -238,19 +234,19 @@ class MapaFragment : Fragment(), OnMapReadyCallback {
 
     // En la parte superior del fragmento
     private val gymInfoList: List<GymInfo> = listOf(
-        GymInfo(LatLng(-9.113623197765701, -78.51520381989593), "Gimnasio 1", "Descripción del gimnasio 1"),
-        GymInfo(LatLng(-9.114989312396476, -78.51000012366427), "Gimnasio 2", "Descripción del gimnasio 2"),
-        // Agrega más gimnasios aquí
-    )
+        GymInfo(LatLng(-9.116862541983249, -78.51541460297165), "Trainers Gym", "CORRDENADAS: -9.116862541983249, -78.51541460297165"),
+        GymInfo(LatLng(-9.117480387789922, -78.50773028970886), "Body Evolution Gym", "COORDENADAS: -9.117480387789922, -78.50773028970886"),
+        GymInfo(LatLng(-9.119894970709302, -78.50732114627674), "Bash Gym", "COORDENADAS: -9.119894970709302, -78.50732114627674"),
+        )
 
     data class ParkInfo(val latLng: LatLng, val title: String, val description: String)
 
-    // En la parte superior del fragmento
+
     private val parkInfoList: List<ParkInfo> = listOf(
-        ParkInfo(LatLng(-9.113623197765701, -78.51520381989593), "Parque Biosaludable Bellamar", "Descripción del gimnasio 1"),
-        ParkInfo(LatLng(-9.114989312396476, -78.51000012366427), "Parque 'El Pescador'", "Descripción del gimnasio 2"),
-        ParkInfo(LatLng(- 9.118356686889372, -78.52431990863224), "Parque Biosaludable Santa Rosa", "Descripción del gimnasio 3"),
-        // Agrega más gimnasios aquí
+        ParkInfo(LatLng(-9.113623197765701, -78.51520381989593), "Parque Biosaludable Bellamar", "COORDENADAS: -9.113623197765701, -78.51520381989593"),
+        ParkInfo(LatLng(-9.114989312396476, -78.51000012366427), "Parque 'El Pescador'", "COORDENADAS: -9.114989312396476, -78.51000012366427"),
+        ParkInfo(LatLng(- 9.118356686889372, -78.52431990863224), "Parque Biosaludable Santa Rosa", "COORDENADAS: - 9.118356686889372, -78.52431990863224"),
+
     )
 
     private fun clearGymMarkers() {
