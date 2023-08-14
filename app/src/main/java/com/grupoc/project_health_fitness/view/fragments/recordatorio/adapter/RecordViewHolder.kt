@@ -65,7 +65,7 @@ class RecordViewHolder(
     fun render(record: Recordatorio) {
         binding.tvRecordName.text = record.name
         binding.tvInstruction.text = record.note
-//        binding.tvRecordDateInit.text = record.dateInit.toString()
+        binding.tvRecordDateInit.text = record.dateInit.toString()
         // Bind the data to your views in the layout
         // For example: binding.textViewName.text = recordatorio.name
     }
