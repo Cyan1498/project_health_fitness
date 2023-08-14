@@ -7,13 +7,22 @@
     <fragment
         android:id="@+id/resumenFragment"
         android:name="com.grupoc.project_health_fitness.view.fragments.ResumenFragment"
-        android:label="fragment_resumen"
+        android:label="@string/fragment_resumen"
         tools:layout="@layout/fragment_resumen" />
+    <fragment
+        android:id="@+id/consumoFragment"
+        android:name="com.grupoc.project_health_fitness.view.fragments.ConsumoFragment"
+        android:label="@string/fragment_consumo"
+        tools:layout="@layout/fragment_consumo" >
+        <action
+            android:id="@+id/action_consumoFragment_to_alimentacionFragment"
+            app:destination="@id/alimentacionFragment" />
+    </fragment>
     <fragment
         android:id="@+id/recordListFragment"
         android:name="com.grupoc.project_health_fitness.view.fragments.recordatorio.RecordListFragment"
-        android:label="fragment_record_list"
-        tools:layout="@layout/fragment_record_list" >
+        android:label="@string/fragment_record_list"
+        tools:layout="@layout/fragment_record_list">
         <action
             android:id="@+id/action_recordListFragment_to_recordFormFragment"
             app:destination="@id/recordFormFragment" />
@@ -23,22 +32,11 @@
         android:name="com.grupoc.project_health_fitness.view.fragments.recordatorio.RecordFormFragment"
         android:label="fragment_record_form"
         tools:layout="@layout/fragment_record_form" />
-<!--    ________________________________________________________________-->
-    <fragment
-        android:id="@+id/consumoFragment"
-        android:name="com.grupoc.project_health_fitness.view.fragments.ConsumoFragment"
-        android:label="Consumo"
-        tools:layout="@layout/fragment_consumo" />
-    <fragment
-        android:id="@+id/alimentacionFragment"
-        android:name="com.grupoc.project_health_fitness.view.fragments.AlimentacionFragment"
-        android:label="Alimentación"
-        tools:layout="@layout/fragment_alimentacion" />
     <fragment
         android:id="@+id/fitnessFragment"
         android:name="com.grupoc.project_health_fitness.view.fragments.fitness.FitnessFragment"
-        android:label="Fitnees"
-        tools:layout="@layout/fragment_fitness" >
+        android:label="@string/fragment_fitness"
+        tools:layout="@layout/fragment_fitness">
         <action
             android:id="@+id/action_fitnessFragment_to_addFitnessFragment"
             app:destination="@id/addFitnessFragment" />
@@ -46,11 +44,17 @@
     <fragment
         android:id="@+id/addFitnessFragment"
         android:name="com.grupoc.project_health_fitness.view.fragments.fitness.AddFitnessFragment"
-        android:label="Añadir Fitness"
+        android:label="fragment_add_fitness"
         tools:layout="@layout/fragment_add_fitness" />
     <fragment
-        android:id="@+id/mapaFragment"
-        android:name="com.grupoc.project_health_fitness.view.fragments.MapaFragment"
-        android:label="Mapa" />
+        android:id="@+id/profileFragment"
+        android:name="com.grupoc.project_health_fitness.view.fragments.ProfileFragment"
+        android:label="@string/fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/alimentacionFragment"
+        android:name="com.grupoc.project_health_fitness.view.fragments.AlimentacionFragment"
+        android:label="fragment_alimentacion"
+        tools:layout="@layout/fragment_alimentacion" />
 
 </navigation>

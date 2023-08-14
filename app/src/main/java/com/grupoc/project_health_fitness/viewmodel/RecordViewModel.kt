@@ -64,7 +64,7 @@ class RecordViewModel : ViewModel() {
             }
             .addOnFailureListener {
                 // Handle failure
-                _updateSuccess.value = true
+                _unknownErrorEvent.value = true
                 // You can set an error message or handle it as per your app's requirement
             }
     }

@@ -5,25 +5,33 @@
 
     <group android:checkableBehavior="single">
 
-        <item android:id="@+id/consumoFragment"
+        <item
+            android:id="@+id/consumoFragment"
             android:icon="@drawable/baseline_emoji_food_beverage_24"
-            android:title="Consumo Diario"/>
+            android:title="Consumo Diario" />
 
-        <item android:id="@+id/fitnessFragment"
+        <item
+            android:id="@+id/fitnessFragment"
             android:icon="@drawable/baseline_fitness_center_24"
-            android:title="Fitness"/>
+            android:title="Fitness" />
 
-        <item android:id="@+id/mapaFragment"
+        <item
+            android:id="@+id/mapaFragment"
             android:icon="@drawable/baseline_directions_run_24"
-            android:title="Gimnasios y parques"/>
+            android:title="Gimnasios cercanos" />
 
-        <item android:id="@+id/recordListFragment"
+        <item
+            android:id="@+id/recordListFragment"
             android:icon="@drawable/baseline_medication_liquid_24"
-            android:title="Recordatorio de Medicina"/>
-
-        <item android:id="@+id/nav_salir"
-            android:icon="@drawable/baseline_exit_to_app_24"
-            android:title="Salir"/>
+            android:title="Recordatorio de Medicina" />
+        <item android:title="Salir">
+            <menu>
+                <item
+                    android:id="@+id/nav_salir"
+                    android:icon="@drawable/baseline_exit_to_app_24"
+                    android:title="Cerrar sesión" />
+            </menu>
+        </item>
     </group>
 
 </menu>

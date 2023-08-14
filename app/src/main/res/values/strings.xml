@@ -7,6 +7,13 @@
     <string name="open_nav">Open Navigation Drawer</string>
     <string name="close_nav">Close Navigation Drawer</string>
     <string name="add_item">Añadir Nuevo</string>
+    <string name="fragment_resumen">Inicio</string>
+    <string name="fragment_profile">Perfil</string>
+    <!--><string name="">Configuración</string>-->
+    <string name="fragment_consumo">Consumo Diario</string>
+    <string name="MapaFragment">Gimnasios cercanos</string>
+    <string name="fragment_record_list">Recordatorio de Medicina</string>
+    <string name="fragment_fitness">Fitness</string>
     <!-- TODO: Remove or change this placeholder text -->
 
     <string-array name="instrucciones">
@@ -26,6 +33,13 @@
     <string-array name="genero">
         <item>Masculino</item>
         <item>Femenino</item>
+    </string-array>
+
+    <string-array name="categoria">
+        <item>Flexiones en Barra</item>
+        <item>Flexiones en Suelo</item>
+        <item>Abdominales</item>
+        <item>Flexiones en Cuclillas</item>
     </string-array>
 
 </resources>
