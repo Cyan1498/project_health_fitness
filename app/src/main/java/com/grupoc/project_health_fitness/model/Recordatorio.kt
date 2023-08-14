@@ -7,7 +7,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class Recordatorio(
     val id: String?,
-    val name: String?,
+    val name: String,
 //    val dateInit: Timestamp?,
     val dateInit: String?,
     val instruction: String?,
@@ -19,7 +19,7 @@ data class Recordatorio(
     // Constructor sin argumentos requerido por Firebase Firestore
     constructor() : this(
         null,
-        null,
+        "",
         null,
         null,
         "",

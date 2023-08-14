@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter
 import androidx.activity.addCallback
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.airbnb.lottie.LottieAnimationView
 import com.google.firebase.Timestamp
@@ -170,7 +171,8 @@ class RecordFormFragment : Fragment() {
                 )
                 //viewModel.resetEvents()
                 // Cerrar el fragmento después de que la animación se haya detenido
-                requireActivity().supportFragmentManager.popBackStack()
+//                requireActivity().supportFragmentManager.popBackStack()
+                findNavController().popBackStack()
             }
         }
         viewModel.updateSuccess.observe(viewLifecycleOwner) { success ->

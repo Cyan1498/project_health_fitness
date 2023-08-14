@@ -9,7 +9,10 @@ import com.grupoc.project_health_fitness.model.Recordatorio
 
 class RecordAdapter(
     private var recordList: List<Recordatorio>,
-    private val itemClickListener: OnRecordClickListener
+    private val itemClickListener: OnRecordClickListener,
+//    private val itemDeleteListener: OnRecordClickListener,
+//    private val recyclerView: RecyclerView
+
 ) : RecyclerView.Adapter<RecordViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecordViewHolder {
@@ -23,6 +26,7 @@ class RecordAdapter(
         holder.itemView.setOnClickListener {
             itemClickListener.onRecordItemClick(item)
         }
+        holder.bindDeleteClickListener(item, position)
         holder.render(item)
     }
 
@@ -39,4 +43,5 @@ class RecordAdapter(
         recordList = newList
         diffResult.dispatchUpdatesTo(this)
     }
+
 }

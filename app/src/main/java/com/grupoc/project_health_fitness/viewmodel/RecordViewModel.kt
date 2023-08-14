@@ -142,7 +142,16 @@ class RecordViewModel : ViewModel() {
 //                // Handle failure
 //            }
 //    }
+//
+    private val _filteredRecordatorios = MutableLiveData<List<Recordatorio>>()
+    val filteredRecordatorios: LiveData<List<Recordatorio>> get() = _filteredRecordatorios
 
+    fun filterRecordatorios(searchQuery: String) {
+        val filteredList = recordatorioList.value?.filter { recordatorio ->
+            recordatorio.name.contains(searchQuery, ignoreCase = true)
+        }
+        _filteredRecordatorios.value = filteredList.orEmpty() // Utilizamos orEmpty para manejar el caso de lista nula
+    }
 
 
 }
